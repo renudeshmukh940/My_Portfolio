@@ -37,7 +37,7 @@ export default function Home() {
             <div className='w-1/2 flex flex-col items-center self-center sm:w-full lg:w-full lg:text-center'>
               <AnimatedText text="Decoding Data. Driving Decisions. Delivering Impact."
                 className='!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-4xl md:!text-3xl sm:!2xl' />
-              <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>Hi, I'm Renu Deshmukh — a passionate Data Analyst with a strong foundation in turning data into meaningful insights.
+              <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>Hi, I&apos;m Renu Deshmukh — a passionate Data Analyst with a strong foundation in turning data into meaningful insights.
 I specialize in Power BI, SQL, Python, and also bring hands-on experience in ASP.NET, C#, MVC, and React.
 
 With a keen interest in data storytelling and problem-solving, I thrive on learning new tools and technologies. I’m always excited to contribute my skills to innovative and impactful projects that drive real business value.
