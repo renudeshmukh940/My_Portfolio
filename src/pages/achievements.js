@@ -77,7 +77,7 @@ const awards = [
         title: 'SQL (Advanced) Certificate by HackerRank',
     },
     {
-        image: '/images/articles/SQL(Intermediate).png',
+        image: '/images/articles/SQL.png',
         title: 'SQL (Intermediate) Certificate by HackerRank',
     },
 
