@@ -58,7 +58,7 @@ const ContactForm = () => {
         // Check if email is valid
         if (!emailError && errors.length === 0) {
             try {
-                const response = await fetch('https://formspree.io/f/mqkrzejn', {
+                const response = await fetch('https://formspree.io/f/xrbqbjbk', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
