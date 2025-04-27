@@ -105,7 +105,7 @@ function NavBar() {
                         <nav className='flex items-center flex-col justify-center'>
                             <CustomMobileLink href="/" title={"Home"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/about" title={"About"} className='' toggle={handleClick} />
-                            <CustomLink href="/Educations" title={"Education"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/Educations" title={"Education"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/projects" title={"Projects"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/achievements" title={"Achievements"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ExperiencesPage" title={"Experiences"} className='' toggle={handleClick} />
