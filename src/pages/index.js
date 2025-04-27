@@ -25,14 +25,14 @@ export default function Home() {
         <Layout className='pt-0 md:p-16 sm:px-4'>
           <div className='flex items-center justify-between w-full lg:flex-col'>
             <div className='w-1/2 md:w-full md:pt-0 sm:pt-0 sm:w-full xs:w-full'>
-              <Image src={profilePic} alt='deshmukhrenu' className='w-full h-120 -mt-20 lg:hidden md:inline-block md:w-full'
-
+    <Image src={profilePic} alt='deshmukhrenu' className='w-full h-auto md:inline-block md:w-full'
                 priority
                 sizes="(max-width: 768px) 100vw,
                       (max-width: 1200px) 50vw,
                       50vw"
-              >
-              </Image>
+
+              />
+             
             </div>
             <div className='w-1/2 flex flex-col items-center self-center sm:w-full lg:w-full lg:text-center'>
               <AnimatedText text="Decoding Data. Driving Decisions. Delivering Impact."
