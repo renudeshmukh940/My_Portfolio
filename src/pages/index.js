@@ -25,12 +25,12 @@ export default function Home() {
         <Layout className='pt-0 md:p-16 sm:px-4'>
           <div className='flex items-center justify-between w-full lg:flex-col'>
             <div className='w-1/2 md:w-full md:pt-0 sm:pt-0 sm:w-full xs:w-full'>
-    <Image src={profilePic} alt='deshmukhrenu' className='w-full h-auto md:inline-block md:w-full'
+   <Image
+                src={profilePic}
+                alt="deshmukhrenu"
+                className="w-full h-auto object-contain md:inline-block md:w-full sm:max-h-[50vh]" // Added object-contain and max-height for mobile
                 priority
-                sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      50vw"
-
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               />
              
             </div>
