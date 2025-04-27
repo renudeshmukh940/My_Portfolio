@@ -107,7 +107,7 @@ const ContactForm = () => {
                             </svg>
                             <div class="col-span-2">
                                 <h2 class="text-xl font-semibold text-gray-800">Phone Number</h2>
-                                <p class="text-gray-600">+91-7415960964</p>
+                                <p class="text-gray-600">+91-8305201543</p>
                             </div>
                         </div>
                         <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-6 grid grid-cols-3 gap-4">
@@ -117,7 +117,7 @@ const ContactForm = () => {
                             </svg>
                             <div class="col-span-2">
                                 <h2 class="text-xl font-semibold text-gray-800">Email</h2>
-                                <p class="text-gray-600">saurabhgk7@gmail.com</p>
+                                <p class="text-gray-600">deshmukhrenu4@gmail.com</p>
                             </div>
                         </div>
                         <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-6 grid grid-cols-3 gap-4">
@@ -127,7 +127,7 @@ const ContactForm = () => {
                             </svg>
                             <div class="col-span-2">
                                 <h2 class="text-xl font-semibold text-gray-800">Address</h2>
-                                <p class="text-gray-600">Koramangala-560034, Bangalore.</p>
+                                <p class="text-gray-600">Awadhpuri ,Bhopal.</p>
                             </div>
                         </div>
                     </div>
