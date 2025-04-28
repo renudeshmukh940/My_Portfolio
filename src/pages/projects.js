@@ -153,9 +153,9 @@ const projectsData = [
         image: '/images/projects/billboards.png',
         description: "This is a data anlysis of Billboard top-100 charts songs having various music styles from Classic, Rock to Jazz Users can interactively choose a year/genre range they are interested in to get a closer look at subtleties. For each song, I count the number of duplicate lines that appear in the lyrics, This can be used as a rough measure of repetition in the song content, that is the more duplicate lines in the lyrics, the more repetitive a song is. Using the Natural Language Toolkit (NLTK) for Python, I used the VADER model for parsimonious rule-based sentiment analysis of each song's lyrics, Each song was run through a sentiment analyzer and output an object with data about its sentiment",
         techStack: 'Tech Stack: Python, JavaScript, Data analysis, NLTK, NLP, rule-based sentiment analysis',
-        link: 'https://saurabh7goku.github.io/Billboard-Analysis/',
+        link: '/',
         video: '',
-        code: 'https://github.com/Saurabh7Goku/Billboard-Analysis',
+        code: 'https://github.com/renudeshmukh940/Billboard_DataAnalysis',
     },
 ];
 
