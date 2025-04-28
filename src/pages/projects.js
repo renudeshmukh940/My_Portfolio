@@ -118,7 +118,7 @@ const projectsData = [
         techStack: 'Tech Stack: Python, LLMs, Streamlit, Prompt Engineering',
         link: '',
         video: '',
-        code: 'https://github.com/Saurabh7Goku/ATS_Resume_Checker'
+        code: 'https://github.com/renudeshmukh940/ATS_Resume_Checker'
     },
     {
         id: 10,
