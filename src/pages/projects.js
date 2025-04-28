@@ -69,7 +69,7 @@ const projectsData = [
         techStack: 'Tech Stack: AWS EC2, S3, ECR, git Actions, MlFLow, DVC, Dagshub',
         link: '',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/cancer_classification.mp4?alt=media&token=567c6522-feec-4ce9-8848-72eb7f978c0c',
-        code: 'https://github.com/Saurabh7Goku/END_TO_END-Chest-Cancer-Detection-using-MlFLow-DVC'
+        code: 'https://github.com/renudeshmukh940/Chest-Cancer-Detection'
     },
     {
         id: 6,
