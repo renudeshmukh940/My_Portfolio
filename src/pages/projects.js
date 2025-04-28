@@ -140,7 +140,7 @@ const projectsData = [
         image: '/images/projects/chatbot.jpg',
         description: "This is a Artificial Intelligence Application which will answer to your queries real quick and effortlessly using Large Language Models. We leverage state-of-the-art language models hosted on the Hugging Face Model Hub to power our chat bot. The backend of our Chat Bot is built using Python, a versatile and powerful programming language The user interface of our application is developed using Streamlit",
         techStack: 'Tech Stack: Python, Streamlit, LLM, API, HuggingFace and Huggingface Spaces',
-        link: 'https://huggingface.co/spaces/Saurabhgk18/custome_chatbot',
+        link: '',
         video: '',
         code: 'https://github.com/Saurabh7Goku/Multi_Model-Chat-App',
 
