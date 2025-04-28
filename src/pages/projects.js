@@ -18,7 +18,7 @@ const projectsData = [
         techStack: 'Tech Stack: SQL, Data Analysis, PowerBI',
         link: '/DemoProject3',
         video: '',
-        code: 'https://github.com/Saurabh7Goku'
+        code: 'https://github.com/renudeshmukh940/'
     },
 
     {
@@ -44,7 +44,7 @@ const projectsData = [
         techStack: 'Tech Stack: SQL, Data Analysis, PowerBI',
         link: '/DemoProject1',
         video: '',
-        code: 'https://github.com/Saurabh7Goku/Sales_data_analysis'
+        code: 'https://github.com/renudeshmukh940/Sales_DataAnalysis'
     },
     {
         id: 4,
