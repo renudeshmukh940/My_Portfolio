@@ -106,7 +106,7 @@ const projectsData = [
         techStack: 'Tech Stack: Python, LLMs, Agents, CrewAI, API, Gradio',
         link: '',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/Nutrition-AI.mp4?alt=media&token=75229000-c38d-454a-807c-9b82df174bc5',
-        code: 'https://github.com/Saurabh7Goku/Nutritionist_AI'
+        code: 'https://github.com/renudeshmukh940/Nutritionist_AI'
     },
     {
         id: 9,
