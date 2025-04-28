@@ -93,7 +93,7 @@ const projectsData = [
         techStack: 'Tech Stack: Deep Learning, Transfer Learning, CNNs, LSTM, Python, Flask, SocketIO, Inception V-NET',
         link: '',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/violence_detection_video.mp4?alt=media&token=40857c30-3972-47dd-8ffd-e05c214e44dc',
-        code: 'https://github.com/Saurabh7Goku/realtime_violencedetection'
+        code: 'https://github.com/renudeshmukh940/violencedetection'
     },
 
     {
