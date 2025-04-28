@@ -142,7 +142,7 @@ const projectsData = [
         techStack: 'Tech Stack: Python, Streamlit, LLM, API, HuggingFace and Huggingface Spaces',
         link: '',
         video: '',
-        code: 'https://github.com/Saurabh7Goku/Multi_Model-Chat-App',
+        code: 'https://github.com/renudeshmukh940/ChatApp',
 
     },
     {
