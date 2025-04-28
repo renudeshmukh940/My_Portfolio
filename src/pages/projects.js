@@ -56,7 +56,7 @@ const projectsData = [
         techStack: 'Tech Stack: Data Analysis, SQL, PowerBI',
         link: '/DemoProject2',
         video: '',
-        code: 'https://github.com/Saurabh7Goku/eCommerceAnalysis'
+        code: 'https://github.com/renudeshmukh940/ECommerece_Data_Analysis'
     },
 
     {
