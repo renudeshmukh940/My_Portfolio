@@ -104,7 +104,7 @@ const projectsData = [
         image: '/images/projects/NUTRITION.jpg',
         description: "This is an Android Application build using flutter SDK in dart named SavantGen which is a personal AI Assistant and also contains feature of ATS Resume Scan. It can Detect Missing Keywords, Improvise the Content writing on the resume, Guide how to improve for targeted JOB's Positions. Contains an Admin Dashboard where Admin can control the User's trials or increases their attempts",
         techStack: 'Tech Stack: Python, LLMs, Agents, CrewAI, API, Gradio',
-        link: 'https://huggingface.co/spaces/Saurabhgk18/Nutritionist_AI',
+        link: '',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/Nutrition-AI.mp4?alt=media&token=75229000-c38d-454a-807c-9b82df174bc5',
         code: 'https://github.com/Saurabh7Goku/Nutritionist_AI'
     },
@@ -116,7 +116,7 @@ const projectsData = [
         image: '/images/projects/ats1.png',
         description: "The ATS Resume Checker is a tool designed to simplify the job application process by providing a comprehensive analysis of your resume against a provided job description. The primary goal is to enhance your chances of success in the applicant tracking system (ATS) by ensuring your resume aligns with the requirements of the targeted job",
         techStack: 'Tech Stack: Python, LLMs, Streamlit, Prompt Engineering',
-        link: 'https://huggingface.co/spaces/Saurabhgk18/Resume-Checker-ATS',
+        link: '',
         video: '',
         code: 'https://github.com/Saurabh7Goku/ATS_Resume_Checker'
     },
