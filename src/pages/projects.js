@@ -81,7 +81,7 @@ const projectsData = [
         techStack: 'Tech Stack: LLMs, Agents, Flask, Prompt Engineering, React NextJS, APIS, Hooks, CrewAI',
         link: '',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/Job%20Searching%20Agent%20-%20Made%20with%20Clipchamp.mp4?alt=media&token=4e862d09-47d1-4604-b942-66403e7c8f52',
-        code: 'https://github.com/Saurabh7Goku/Job-Posting-Search-Agent'
+        code: 'https://github.com/renudeshmukh940/Job-Posting-Search-Agent'
     },
     {
         id: 7,
