@@ -64,11 +64,11 @@ function NavBar() {
                 <nav>
                     <CustomLink href="/" title={"Home"} className='mr-4' />
                     <CustomLink href="/about" title={"About"} className='mx-4' />
-                    <CustomLink href="/Educations" title={"Education"} className='mx-4' />
                     <CustomLink href="/projects" title={"Projects"} className='mx-4' />
                     <CustomLink href="/ExperiencesPage" title={"Experiences"} className='mx-4' />
                     <CustomLink href="/achievements" title={"Achievements"} className='mx-4' />
                     <CustomLink href="/ObjectDetection" title={"ObjectDetection"} className='mx-4' />
+                     <CustomLink href="/chatbot" title={"chat bot"} className='mx-4' />
                     <CustomLink href="/contacts" title={"Contact Me"} className='mx-4' />
                 </nav>
 
@@ -105,11 +105,11 @@ function NavBar() {
                         <nav className='flex items-center flex-col justify-center'>
                             <CustomMobileLink href="/" title={"Home"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/about" title={"About"} className='' toggle={handleClick} />
-                            <CustomMobileLink href="/Educations" title={"Education"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/projects" title={"Projects"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/achievements" title={"Achievements"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ExperiencesPage" title={"Experiences"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ObjectDetection" title={"ObjectDetection"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/chatbot" title={"chat bot"} className='' toggle={handleClick} /> 
                             <CustomMobileLink href="/contacts" title={"Contact Me"} className='' toggle={handleClick} />
                         </nav>
 
