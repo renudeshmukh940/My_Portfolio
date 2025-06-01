@@ -28,5 +28,3 @@ The following dependencies are required for this project:
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
 =======
-# MyPortfolio
->>>>>>> c6c579ea2ae1d38e382dd87e9708b39d40ceeb3f
