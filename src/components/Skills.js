@@ -61,8 +61,8 @@ const Skills = () => {
                 </motion.div>
 
                 {/* Skill Bubbles */}
-                <Skill name="Power BI" angle={5} radius={radius} />
-                <Skill name="Tableau" angle={25} radius={radius} />
+                <Skill name="ASP.NET C#" angle={5} radius={radius} />
+                <Skill name="MVC5" angle={25} radius={radius} />
                 <Skill name="SQL" angle={50} radius={radius} />
                 <Skill name="Python" angle={75} radius={radius} />
                 <Skill name="Pandas" angle={100} radius={radius} />
@@ -72,7 +72,7 @@ const Skills = () => {
                 <Skill name="EDA" angle={190} radius={radius} />
                 <Skill name="Machine Learning" angle={210} radius={radius} />
                 <Skill name="Data Visualization" angle={235} radius={radius} />
-                <Skill name="Dashboards" angle={275} radius={radius} />
+                <Skill name="Power BI" angle={275} radius={radius} />
                 <Skill name="Business Intelligence" angle={314} radius={radius} />
                 <Skill name="Report Automation" angle={332} radius={radius} />
                 <Skill name="ETL" angle={348} radius={radius} />
