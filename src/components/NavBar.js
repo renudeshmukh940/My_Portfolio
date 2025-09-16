@@ -68,6 +68,7 @@ function NavBar() {
                     <CustomLink href="/ExperiencesPage" title={"Experiences"} className='mx-4' />
                     <CustomLink href="/achievements" title={"Achievements"} className='mx-4' />
                     <CustomLink href="/ObjectDetection" title={"ObjectDetection"} className='mx-4' />
+                    <CustomLink href="/Blog/Blog1" title={"Blog"} className='mx-4' />
                      <CustomLink href="/chatbot" title={"chat bot"} className='mx-4' />
                     <CustomLink href="/contacts" title={"Contact Me"} className='mx-4' />
                 </nav>
@@ -109,6 +110,7 @@ function NavBar() {
                             <CustomMobileLink href="/achievements" title={"Achievements"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ExperiencesPage" title={"Experiences"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ObjectDetection" title={"ObjectDetection"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/Blog/Blog1" title={"Blog"} className='' toggle={handleClick} /> 
                             <CustomMobileLink href="/chatbot" title={"chat bot"} className='' toggle={handleClick} /> 
                             <CustomMobileLink href="/contacts" title={"Contact Me"} className='' toggle={handleClick} />
                         </nav>
