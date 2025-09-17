@@ -67,8 +67,9 @@ export default function AIAgentsArticle() {
       {/* Sections */}
       <h2 className="text-3xl sm:text-4xl text-center font-bold mt-10 mb-4">🤖 How to Build a Basic AI Agent</h2>
       <p className="text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
-        AI agents are software programs that <strong>observe, decide, and act</strong> to achieve goals. Here's a step-by-step guide to creating a simple AI agent using Python.
-      </p>
+  AI agents are software programs that <strong>observe, decide, and act</strong> to achieve goals. Here&apos;s a step-by-step guide to creating a simple AI agent using Python.
+</p>
+
 
       <h3 className="text-2xl text-center font-semibold mt-6 mb-2">1. Tools & Requirements</h3>
       <ul className="list-disc pl-6 space-y-2 mb-6 max-w-3xl mx-auto">
@@ -313,4 +314,5 @@ runAgent("Find AI news today").then(console.log);`}
     </div>
   );
 }
+
 
