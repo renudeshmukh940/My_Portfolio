@@ -22,9 +22,19 @@ export default function AIAgentsArticle() {
   };
 
   return (
-    <div className="px-4 sm:px-8 py-12 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-all duration-300">
+    <div className="relative px-4 sm:px-8 py-12 min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-black text-gray-900 dark:text-gray-100 transition-all duration-300 overflow-hidden">
+      
+      {/* Soft Blue Blobs */}
+      <div className="absolute -top-10 -left-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+      <div className="absolute top-1/2 right-0 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-200 rounded-full blur-2xl opacity-30"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-blue-300 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute top-3/4 left-10 w-32 h-32 bg-blue-100 rounded-full blur-2xl opacity-40"></div>
+      <div className="absolute top-0 right-1/3 w-56 h-56 bg-blue-200 rounded-full blur-3xl opacity-25"></div>
 
-      {/* Title */}
+      {/* Content */}
+      <div className="relative z-10">
       <h1 className="text-5xl sm:text-6xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
         AI Agents: The Future of Automation and Intelligence
       </h1>
@@ -312,7 +322,9 @@ runAgent("Find AI news today").then(console.log);`}
 
       
     </div>
+  </div>
   );
 }
+
 
 
