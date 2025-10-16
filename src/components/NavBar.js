@@ -68,7 +68,25 @@ function NavBar() {
                     <CustomLink href="/ExperiencesPage" title={"Experiences"} className='mx-4' />
                     <CustomLink href="/achievements" title={"Achievements"} className='mx-4' />
                     <CustomLink href="/ObjectDetection" title={"ObjectDetection"} className='mx-4' />
-                    <CustomLink href="/Blog/Blog1" title={"Blog"} className='mx-4' />
+                 {/* ===== BLOG DROPDOWN START ===== */}
+  <div className="relative group mx-4">
+    <button className="font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+      Blog
+    </button>
+    <div className="absolute left-0 hidden w-40 bg-white border border-gray-300 rounded-md shadow-md group-hover:block">
+      <CustomLink
+        href="/Blog/Blog1"
+        title="Blog 1"
+        className="block px-4 py-2 hover:bg-gray-100"
+      />
+      <CustomLink
+        href="/Blog/Blog2"
+        title="Blog 2"
+        className="block px-4 py-2 hover:bg-gray-100"
+      />
+    </div>
+  </div>
+  {/* ===== BLOG DROPDOWN END ===== */}
                      <CustomLink href="/chatbot" title={"chat bot"} className='mx-4' />
                     <CustomLink href="/contacts" title={"Contact Me"} className='mx-4' />
                 </nav>
@@ -110,7 +128,25 @@ function NavBar() {
                             <CustomMobileLink href="/achievements" title={"Achievements"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ExperiencesPage" title={"Experiences"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/ObjectDetection" title={"ObjectDetection"} className='' toggle={handleClick} />
-                            <CustomMobileLink href="/Blog/Blog1" title={"Blog"} className='' toggle={handleClick} /> 
+                          {/* ===== BLOG DROPDOWN START ===== */}
+  <div className="relative group mx-4">
+    <button className="font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+      Blog
+    </button>
+    <div className="absolute left-0 hidden w-40 bg-white border border-gray-300 rounded-md shadow-md group-hover:block">
+      <CustomLink
+        href="/Blog/Blog1"
+        title="Blog 1"
+        className="block px-4 py-2 hover:bg-gray-100"
+      />
+      <CustomLink
+        href="/Blog/Blog2"
+        title="Blog 2"
+        className="block px-4 py-2 hover:bg-gray-100"
+      />
+    </div>
+  </div>
+  {/* ===== BLOG DROPDOWN END ===== */}
                             <CustomMobileLink href="/chatbot" title={"chat bot"} className='' toggle={handleClick} /> 
                             <CustomMobileLink href="/contacts" title={"Contact Me"} className='' toggle={handleClick} />
                         </nav>
