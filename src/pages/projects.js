@@ -1,5 +1,3 @@
-Interview Prepration :-
-
 
 import { useState } from 'react';
 import Head from 'next/head';
