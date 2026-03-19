@@ -1,10 +1,14 @@
+Interview Prepration :-
+
+
 import { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedText from '@/components/AnimatedText';
 import Layout from '@/components/Layout';
+import { motion } from 'framer-motion';
 import TransitionEffect from '@/components/TransitionEffect';
+import Image from 'next/image';
+
 
 const projectsData = [
     {
@@ -13,24 +17,26 @@ const projectsData = [
         category: 'Data Analyst',
         tag: 'data_analyst',
         image: '/images/projects/zomato.png',
-        description: "The data used here is sourced from Zomato's comprehensive dataset covering various aspects of food sales across India. This meticulous process yields actionable insights, empowering data-driven decision-making for the company. Used different types of customized visualization (bar charts, pie chart, donut chart, clustered bar chart etc).",
+        description: "The data used here is sourced from Zomato's comprehensive dataset covering various aspects of food sales across India.This meticulous process yields actionable insights, empowering data-driven decision-making for the company.Used different types of customized visualization (bar charts, pie chart, donut chart, clustered bar chart etc)",
         techStack: 'Tech Stack: SQL, Data Analysis, PowerBI',
         link: '/DemoProject3',
         video: '',
         code: 'https://github.com/renudeshmukh940/'
     },
+
     {
         id: 2,
         title: 'Object Detection',
         category: 'Machine Learning',
         tag: 'machine_learning',
         image: '/images/projects/obj.png',
-        description: "This is a machine learning project for object detections using transfer learning Using CoCo Dataset for training. This application takes an image and generate a prediction confidence for each category present inside the image and draw a rectangle around them. Using Tranfer learning the Application works 60% faster and 40% more efficient than the standard Approach.",
+        description: "This is a machine learning project for object detections using transfer learning Using CoCo Dataset for training. This application takes an image and generate a prediction confidence for each category present inside the image and draw a rectangle around them. Using Tranfer learning the Application works 60% faster and 40% more efficient than the standard Approach",
         techStack: 'Tech Stack: Deep Learning, Transfer Learning, NextJS, APIs',
         link: '/ObjectDetection',
         video: 'https://firebasestorage.googleapis.com/v0/b/newtry-d602d.appspot.com/o/objectDetection.mp4?alt=media&token=77e06830-85df-49b8-9a6b-b8183ac2f7e4',
         code: 'https://github.com/renudeshmukh940/My_Portfolio/blob/main/src/pages/ObjectDetection.js'
     },
+
     {
         id: 3,
         title: 'Pizza Sales Analysis',
@@ -154,106 +160,62 @@ const projectsData = [
         video: '',
         code: 'https://github.com/renudeshmukh940/Billboard_DataAnalysis',
     },
-
-];
-
-const filters = [
-    { label: 'Latest', value: 'Latest' },
-    { label: 'Data Analyst', value: 'data_analyst' },
-    { label: 'Machine Learning', value: 'machine_learning' },
-    { label: 'SAAS Projects', value: 'sda' },
-    { label: 'Artificial Intelligence', value: 'ai' },
 ];
 
 const Projects = () => {
     const [filter, setFilter] = useState('Latest');
+    // const [hoveredProject, setHoveredProject] = useState(null);
     const [selectedProject, setSelectedProject] = useState(null);
 
+    const handleProjectClick = (project) => {
+        setSelectedProject(project);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedProject(null);
+    };
     const filteredProjects = filter === 'Latest' ? projectsData : projectsData.filter(project => project.tag === filter);
+
+    const handleFilterChange = (category) => {
+        setFilter(category);
+    };
 
     return (
         <>
             <Head>
                 <title>Renu | Projects Page</title>
-                <meta name='description' content='Showcase of my personal projects and work.' />
+                <meta name='description' content='any description' />
             </Head>
             <TransitionEffect />
 
-            <main className='w-full mb-16 flex flex-col items-center justify-center'>
-                <Layout className='pt-8 px-4 sm:px-8 md:px-16 lg:px-24'>
-                    <AnimatedText text={'Personal Projects'} className='pb-4 text-4xl sm:text-5xl lg:text-6xl text-center' />
-                    
-                    <div className="container mx-auto">
-                        
-                        {/* Improved Filter Buttons */}
-                        <div className="flex flex-wrap items-center justify-center gap-3 my-10">
-                            {filters.map((f) => (
-                                <button
-                                    key={f.value}
-                                    onClick={() => setFilter(f.value)}
-                                    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                                        filter === f.value
-                                            ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/40 scale-105'
-                                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900'
-                                    }`}
-                                >
-                                    {f.label}
-                                </button>
-                            ))}
+            <main className='w-auto mb-16 flex flex-col items-center justify-center '>
+                <Layout className='pt-2'>
+                    <AnimatedText text={'Personal Projects'} className='pb-2 sm:text-5xl xs:text-2xl' />
+                    <div className="container mx-auto xs:items-center">
+                        <div className="mb-4 my-12 flex flex-row items-center justify-center xs:grid xs:grid-cols-2 sm:grid sm:grid-cols-2">
+                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('Latest')}>Latest</button>
+                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('data_analyst')}>Data Analyst</button>
+                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('machine_learning')}>Machine Learning</button>
+                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('sda')}>SAAS Projects</button>
+                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('ai')}>Artifical Intelligence</button>
                         </div>
-
-                        {/* Project Cards Grid */}
                         <motion.div
-    key={filter}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    // Added w-full and pt-8 here to ensure it stretches across the container
-    className="w-full pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
->
-    {filteredProjects.slice(0, 9).map((project) => (
-                                <div 
-                                    key={project.id} 
-                                    className="group flex flex-col bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
-                                >
-                                    {/* Card Image Area */}
-                                    <div className="relative w-full h-56 overflow-hidden bg-gray-50 cursor-pointer" onClick={() => setSelectedProject(project)}>
-                                        <Image 
-                                            className='object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out' 
-                                            src={project.image} 
-                                            alt={project.title} 
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        />
-                                    </div>
-                                    
-                                    {/* Card Content */}
-                                    <div className="p-6 flex flex-col flex-grow">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h4 className="text-xl font-bold text-gray-900 line-clamp-2">{project.title}</h4>
-                                        </div>
-                                        <p className="text-sm font-medium text-blue-600 mb-6 bg-blue-50 inline-block w-max px-3 py-1 rounded-full">
-                                            {project.category}
-                                        </p>
-                                        
-                                        <div className="mt-auto flex items-center gap-3">
-                                            <button 
-                                                className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200" 
-                                                onClick={() => setSelectedProject(project)}
-                                            >
-                                                About Project
-                                            </button>
-                                            {project.link && project.link.trim() !== '' && (
-                                                <a 
-                                                    href={project.link} 
-                                                    target='_blank' 
-                                                    rel="noreferrer"
-                                                    className="flex-1 text-center bg-blue-50 hover:bg-blue-100 text-blue-700 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200"
-                                                >
-                                                    View Live
-                                                </a>
-                                            )}
-                                        </div>
+                            initial={{ opacity: 0, x: 120 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="grid grid-cols-3 gap-8 pt-10 w-full xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 "
+                        >
+                            {filteredProjects.slice(0, 9).map(project => (
+                                <div key={project.id} className="project-container bg-gray-100 p-4 m-2 rounded-[2rem] relative">
+                                    <div className=' project-container absolute top-0 -right-3 -z-10 w-[102%] h-[103%]  rounded-[2rem] bg-dark' />
+                                    <Image className='h-[70%] rounded-[1rem]  sm:h-[55%] md:h-[55%] lg:h-[60%]' src={project.image} alt={project.title} width={400} height={300} />
+                                    <h4 className="text-lg md:text-lg sm:text-lg xs:text-sm font-semibold mb-2 flex flex-col items-center">{project.title}</h4>
+                                    <p className="text-sm mb-2">Category: {project.category}</p>
+                                    <div className="flex justify-evenly mb-2">
+                                        {project.link && project.link.trim() !== '' && (
+                                            <a href={project.link} target='_blank' className="btn btn-sm bg-blue-500 hover:bg-blue-300 text-white px-2 py-1 rounded-lg">View Live</a>
+                                        )}
+                                        <button className="btn btn-sm bg-blue-500 hover:bg-blue-300 text-white px-2 py-1 rounded-lg" onClick={() => handleProjectClick(project)}>About Project</button>
                                     </div>
                                 </div>
                             ))}
@@ -261,99 +223,42 @@ const Projects = () => {
                     </div>
                 </Layout>
             </main>
+            {/* Modal for displaying project details */}
+            {selectedProject &&
+                (
+                    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div className="max-w-3xl w-full max-h-screen bg-white p-8 rounded-lg relative overflow-y-auto">
+                            <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={handleCloseModal}>
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                            <h2 className="text-xl font-bold mb-4">{selectedProject.title}</h2>
+                            {selectedProject && selectedProject.video ? (
+                                <div className="video-container relative items-center" style={{ paddingBottom: selectedProject && selectedProject.aspectRatio ? `${(1 / selectedProject.aspectRatio) * 100}%` : '56.25%' }}>
+                                    <video controls src={selectedProject.video} className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+                                </div>
+                            ) : (
+                                <h2 className='flex flex-col items-center font-bold text-sm py-4' >No Demo Videos available. Visit the Deployed link,<p className='text-red-600'>Click Go live</p></h2>
+                            )}
 
-            {/* Right Side Panel (Drawer) for Project Details */}
-            <AnimatePresence>
-                {selectedProject && (
-                    <>
-                        {/* Background Overlay */}
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40" 
-                            onClick={() => setSelectedProject(null)} 
-                        />
+                            <ul className="list-disc pl-4 mb-4 mt-2">
+                                {selectedProject.description.split('.').map((sentence, index) => (
+                                    <li key={index}>{sentence}</li>
+                                ))}
+                            </ul>
 
-                        {/* Sliding Panel */}
-                        <motion.div 
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 h-full w-full sm:w-[450px] md:w-[500px] bg-white z-50 shadow-2xl overflow-y-auto flex flex-col"
-                        >
-                            {/* Panel Header */}
-                            <div className="sticky top-0 bg-white/80 backdrop-blur-md z-10 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-                                <h2 className="text-2xl font-extrabold text-gray-900">{selectedProject.title}</h2>
-                                <button 
-                                    className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-colors" 
-                                    onClick={() => setSelectedProject(null)}
-                                >
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            {/* Panel Content */}
-                            <div className="p-6 flex flex-col gap-6">
-                                {/* Media / Video */}
-                                {selectedProject.video ? (
-                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black shadow-inner">
-                                        <video controls src={selectedProject.video} className="w-full h-full object-cover" />
-                                    </div>
-                                ) : (
-                                    <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-sm">
-                                        <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
-                                    </div>
+                            <p className="text-xs text-blue-700 flex flex-col items-center justify-center font-bold py-2">{selectedProject.techStack}</p>
+                            <div className='flex flex-row justify-between'>
+                                {selectedProject.link && (
+                                    <a href={selectedProject.link} target='_blank' className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Go Live</a>
                                 )}
-
-                                {/* Description */}
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-3">Overview</h3>
-                                    <ul className="space-y-2 text-gray-600 leading-relaxed list-disc pl-5">
-                                        {selectedProject.description
-                                            .split('.')
-                                            .filter(sentence => sentence.trim() !== '')
-                                            .map((sentence, index) => (
-                                                <li key={index} className="pl-1">{sentence.trim()}.</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Tech Stack */}
-                                <div className="bg-blue-50 p-4 rounded-xl">
-                                    <h3 className="text-sm font-bold text-blue-900 mb-1">Technologies Used</h3>
-                                    <p className="text-blue-700 text-sm font-medium">{selectedProject.techStack.replace('Tech Stack: ', '')}</p>
-                                </div>
-
-                                {/* Action Buttons */}
-                                <div className='flex gap-4 pt-4 mt-auto'>
-                                    {selectedProject.link && (
-                                        <a 
-                                            href={selectedProject.link} 
-                                            target='_blank' 
-                                            rel="noreferrer"
-                                            className="flex-1 bg-blue-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/30"
-                                        >
-                                            View Application
-                                        </a>
-                                    )}
-                                    <a 
-                                        href={selectedProject.code} 
-                                        target='_blank' 
-                                        rel="noreferrer"
-                                        className="flex-1 bg-gray-900 text-white text-center py-3 rounded-xl font-semibold hover:bg-gray-800 transition-colors"
-                                    >
-                                        Source Code
-                                    </a>
-                                </div>
+                                <a href={selectedProject.code} target='_blank' className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Code Base</a>
                             </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
+                        </div>
+                    </div >
+                )
+            }
         </>
     )
 }
