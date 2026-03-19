@@ -204,13 +204,14 @@ const Projects = () => {
 
                         {/* Project Cards Grid */}
                         <motion.div
-                            key={filter}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
-                        >
-                            {filteredProjects.slice(0, 9).map((project) => (
+    key={filter}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    // Added w-full and pt-8 here to ensure it stretches across the container
+    className="w-full pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
+>
+    {filteredProjects.slice(0, 9).map((project) => (
                                 <div 
                                     key={project.id} 
                                     className="group flex flex-col bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
