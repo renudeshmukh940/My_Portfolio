@@ -98,12 +98,12 @@ function About() {
                                     Hi There, I&apos;m an <span className="text-blue-600 font-black">Assistant System Engineer</span> at MPOnline Limited Bhopal. Specialist in ASP.Net, C#, and SQL architecture, engineering solutions for high-stakes projects like MPPSC and WCDR.
                                 </p>
                                 <p>
-                                    Embedded at the intersection of <span className="text-slate-900 font-black">Data Analysis</span> and <span className="text-slate-900 font-black">Web Development</span>, I architect systems that don't just store information, but drive strategy.
+                                    Embedded at the intersection of <span className="text-slate-900 font-black">Data Analysis</span> and <span className="text-slate-900 font-black">Web Development</span>, I architect systems that don&apos;t just store information, but drive strategy.
                                 </p>
                                 <div className="bg-white/80 backdrop-blur-sm p-8 rounded-[2.5rem] shadow-[0_15px_40px_rgba(59,130,246,0.05)] border border-blue-50 relative group overflow-hidden transition-all duration-500 hover:border-pink-200">
                                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-600 to-pink-600 rounded-full" />
                                     <p className="italic text-slate-600">
-                                        "Automating analysis through AI—recently architected a system using SQL and Power BI that translates business requirements into dynamic, actionable intelligence."
+                                        &quot;Automating analysis through AI—recently architected a system using SQL and Power BI that translates business requirements into dynamic, actionable intelligence.&quot;
                                     </p>
                                 </div>
                             </div>
