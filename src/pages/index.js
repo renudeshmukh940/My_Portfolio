@@ -111,72 +111,37 @@ export default function Home() {
             </motion.div>
 
             {/* RIGHT SIDE: VISUALS */}
-            <div className="w-1/2 lg:w-full relative h-[600px] xl:h-[500px] md:h-[400px] flex items-center justify-center lg:mt-8">
-              
-              {/* Central Neural Core */}
+            <div className="w-1/2 lg:w-full flex items-center justify-center relative lg:mt-12">
               <motion.div
-                variants={floatingAnim}
-                animate="animate"
-                className="relative w-[320px] h-[320px] xl:w-[260px] xl:h-[260px] md:w-[200px] md:h-[200px] rounded-[3.5rem] bg-white/40 backdrop-blur-3xl border border-white/50 shadow-[0_30px_60px_rgba(245,158,11,0.15)] flex items-center justify-center group overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="relative w-full max-w-lg flex items-center justify-center"
               >
-                {/* Inner Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-orange-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-20 h-20 xl:w-16 xl:h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-600 p-0.5 animate-spin-slow">
-                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                       <span className="text-2xl xl:text-xl">📊</span>
-                    </div>
-                  </div>
-                  <span className="mt-6 text-2xl xl:text-xl font-black text-slate-800 tracking-tighter">
-                    DATA + AI
-                  </span>
-                  <div className="mt-2 h-1 w-12 bg-amber-500 rounded-full" />
-                </div>
-
-                {/* Decorative particles */}
-                <div className="absolute top-10 left-10 w-2 h-2 rounded-full bg-amber-400/40" />
-                <div className="absolute bottom-20 right-12 w-3 h-3 rounded-full bg-orange-400/40" />
-              </motion.div>
-
-              {/* Floating Data Nodes */}
-              {[
-                { text: "100K+ Insights", pos: "top-10 left-0 xl:left-4", icon: "📈", delay: 0 },
-                { text: "SQL Master", pos: "top-40 -left-12 xl:-left-4 md:left-0", icon: "🗄️", delay: 1 },
-                { text: "Predictive AI", pos: "bottom-20 -right-12 xl:-right-4 md:right-0", icon: "🧠", delay: 2 },
-                { text: "Power BI", pos: "bottom-0 right-10 xl:right-16", icon: "🎨", delay: 3 },
-              ].map((item, i) => (
+                {/* Floating Profile Image */}
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    y: [0, -20, 0],
+                  animate={{
+                    y: [0, -15, 0],
                   }}
                   transition={{
-                    y: { duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: item.delay },
-                    opacity: { duration: 1, delay: i * 0.2 },
-                    scale: { duration: 1, delay: i * 0.2 }
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
                   }}
-                  className={`absolute ${item.pos} px-6 py-4 xl:px-4 xl:py-3 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-100 shadow-xl flex items-center gap-3 z-20 hover:scale-110 hover:shadow-amber-500/10 transition-all cursor-default group`}
+                  className="relative z-10 w-full"
                 >
-                  <span className="text-xl xl:text-base group-hover:rotate-12 transition-transform">{item.icon}</span>
-                  <span className="text-sm xl:text-xs font-black text-slate-700 tracking-tight whitespace-nowrap">{item.text}</span>
+                  <img 
+                    src="/images/profile/portfilio_img.png" 
+                    alt="Renu Deshmukh" 
+                    className="w-full h-auto drop-shadow-[0_20px_50px_rgba(245,158,11,0.3)]"
+                  />
                 </motion.div>
-              ))}
 
-              {/* Orbital Rings */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[450px] h-[450px] xl:w-[350px] xl:h-[350px] md:w-[280px] md:h-[280px] border border-amber-200/40 rounded-[4rem] -z-10"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[550px] h-[550px] xl:w-[450px] xl:h-[450px] md:w-[350px] md:h-[350px] border border-slate-200/30 rounded-[5rem] -z-10"
-              />
+                {/* Decorative Premium Elements */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10">
+                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-amber-200/30 to-orange-200/30 blur-[80px] rounded-full animate-pulse" />
+                </div>
+              </motion.div>
             </div>
 
           </div>

@@ -101,7 +101,7 @@ function Experience() {
                                 transition={{ duration: 0.5, type: "spring" }}
                             >
                                 <h3 className='capitalize font-bold text-2xl sm:text-xl xs:text-lg mb-1'>
-                                    Assistant System Engineer&nbsp; <span className='text-primary capitalize'>@ MPOnline Limited</span>
+                                   Software Developer&nbsp; <span className='text-primary capitalize'>@ MPOnline Limited</span>
                                 </h3>
                             </motion.div>
                         </li>
