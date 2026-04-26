@@ -91,7 +91,7 @@ function NavBar() {
                     
                     <CustomLink href="/blogs" title="Blogs" />
 
-                    <CustomLink href="/ObjectDetection" title="Detection" />
+                    
                     <CustomLink href="/contacts" title="Contact" />
                 </nav>
 
@@ -137,7 +137,7 @@ function NavBar() {
                             <CustomMobileLink href="/achievements" title="Achievements" toggle={handleClick} />
                             <CustomMobileLink href="/ExperiencesPage" title="Experiences" toggle={handleClick} />
                             <CustomMobileLink href="/blogs" title="Blogs" toggle={handleClick} />
-                            <CustomMobileLink href="/ObjectDetection" title="Detection" toggle={handleClick} />
+                            
                             <CustomMobileLink href="/contacts" title="Contact" toggle={handleClick} />
                         </nav>
 

@@ -117,7 +117,7 @@ const ContactForm = () => {
                             </svg>
                             <div class="col-span-2">
                                 <h2 class="text-xl font-semibold text-gray-800">Email</h2>
-                                <p class="text-gray-600">deshmukhrenu4@gmail.com</p>
+                                <p class="text-gray-600">drenu5864@gmail.com</p>
                             </div>
                         </div>
                         <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-6 grid grid-cols-3 gap-4">

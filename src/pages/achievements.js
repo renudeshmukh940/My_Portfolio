@@ -63,6 +63,20 @@ const Achievement = ({ img, title, date, link }) => {
     )
 }
 const awards = [
+    {
+        image: '/images/articles/Building_with_the_claude_API.jpg',
+        title: 'Building with the Claude API by Anthropic ',
+    },
+{
+        image: '/images/articles/AI_fundamental_DataBrick.jpeg',
+        title: 'DataBricks Accredited AI Agent Fundamentals by DataBricks',
+    },
+
+    {
+        image: '/images/articles/Intro_Model_Context_Protocol.jpg',
+        title: 'Introduction to Model Context Protocol by Anthropic ',
+    },
+     
 
     {
         image: '/images/articles/Python_Programming.jpeg',

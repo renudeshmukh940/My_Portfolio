@@ -61,13 +61,7 @@ const Blogs = () => {
             link: "/Blog/Blog1",
             category: "Gen-AI"
         },
-        {
-            title: "N8N: Workflow Automation for Modern Businesses",
-            date: "Oct 14, 2025",
-            excerpt: "Discover how n8n is revolutionizing workflow automation.",
-            link: "/Blog/Blog2",
-            category: "Automation"
-        },
+       
         {
             title: "Transformers in Deep Learning",
             date: "March 23, 2026",
@@ -90,7 +84,7 @@ const Blogs = () => {
         return matchesSearch && matchesTab;
     });
 
-    const categories = ['All', 'Machine Learning', 'Gen-AI', 'Automation'];
+    const categories = ['All', 'Machine Learning', 'Gen-AI'];
 
     return (
         <>

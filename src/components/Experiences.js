@@ -7,6 +7,39 @@ import Layout from './Layout';
 import AnimatedText from './AnimatedText';
 
 
+// Sub-component for individual project entries (no position/company heading)
+const ProjectDetails = ({ project, time, address, workList }) => {
+    const ref = useRef(null);
+    return (
+        <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-start justify-between md:w-[80%]'>
+            <LiIcon reference={ref} />
+            <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, type: "spring" }}
+            >
+                <span className='inline-block px-3 py-1 mb-2 text-sm font-bold text-primary bg-primary/10 rounded-full border border-primary/20'>
+                    📂 {project}
+                </span>
+                <div className='capitalize font-medium text-black md:text-sm sm:text-sm xs:text-sm mb-4 font-bold'>
+                    {time} | {address}
+                </div>
+                <div className='font-medium w-full md:text-sm'>
+                    <ul className='space-y-3'>
+                        {workList.map((item, index) => (
+                            <li key={index} className='flex gap-2 text-black'>
+                                <span className='text-primary font-bold'>•</span>
+                                <span className='font-semibold'>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </motion.div>
+        </li>
+    );
+};
+
+// Standalone component for entries with their own position/company (e.g. Intern)
 const Details = ({ position, company, time, address, workList }) => {
     const ref = useRef(null);
     return (
@@ -59,25 +92,22 @@ function Experience() {
                     <motion.div style={{ scaleY: scrollYProgress }} className='absolute left-9 top-1 w-[4px] h-full bg-dark dark:bg-light origin-top md:w-[2px] md:left-[30px] xs:left-[20px]' />
                     
                     <ul className='w-full flex flex-col items-start justify-between ml-4 xs:ml-2'>
-                        
-                        <Details 
-                            position='Assistant System Engineer (OSMS Project)' 
-                            company='MPOnline Limited' 
-                            time='01/2026 - Current' 
-                            address='Bhopal'
-                            workList={[
-                                "Designed and implemented an end-to-end AI pipeline to extract structured data from handwritten school registers using OCR and image processing.",
-                                "Utilized EasyOCR/Tesseract for handwritten text recognition and applied preprocessing techniques (noise removal, image enhancement) to improve extraction accuracy.",
-                                "Built a data post-processing module to map unstructured OCR output into structured tabular format aligned with original register columns.",
-                                "Developed a scalable backend system to store extracted data into SQL Server with validation and error handling mechanisms.",
-                                "Created an interactive UI to visualize extracted data in grid format and implemented Excel export functionality for reporting and analysis.",
-                                "Reduced manual data entry effort by automating digitization of handwritten records and improved operational efficiency."
-                            ]}
-                        />
 
-                        <Details 
-                            position='Assistant System Engineer (MPBSE Project)' 
-                            company='MPOnline Limited' 
+                        {/* ── MPOnline Limited — shown once ── */}
+                        <li className='w-[60%] mx-auto md:w-[80%] mt-0 mb-2'>
+                            <motion.div
+                                initial={{ y: 50, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, type: "spring" }}
+                            >
+                                <h3 className='capitalize font-bold text-2xl sm:text-xl xs:text-lg mb-1'>
+                                    Assistant System Engineer&nbsp; <span className='text-primary capitalize'>@ MPOnline Limited</span>
+                                </h3>
+                            </motion.div>
+                        </li>
+
+                        <ProjectDetails 
+                            project='MPBSE (Madhya Pradesh Board of Secondary Education) Project'
                             time='01/2026 - Current' 
                             address='Bhopal'
                             workList={[
@@ -91,9 +121,22 @@ function Experience() {
                             ]}
                         />
 
-                        <Details 
-                            position='Assistant System Engineer (WCDR Project)' 
-                            company='MPOnline Limited' 
+                        <ProjectDetails 
+                            project='OSMS (Online School Management System) Project'
+                            time='01/2026 - Current' 
+                            address='Bhopal'
+                            workList={[
+                                "Designed and implemented an end-to-end AI pipeline to extract structured data from handwritten school registers using OCR and image processing.",
+                                "Utilized EasyOCR/Tesseract for handwritten text recognition and applied preprocessing techniques (noise removal, image enhancement) to improve extraction accuracy.",
+                                "Built a data post-processing module to map unstructured OCR output into structured tabular format aligned with original register columns.",
+                                "Developed a scalable backend system to store extracted data into SQL Server with validation and error handling mechanisms.",
+                                "Created an interactive UI to visualize extracted data in grid format and implemented Excel export functionality for reporting and analysis.",
+                                "Reduced manual data entry effort by automating digitization of handwritten records and improved operational efficiency."
+                            ]}
+                        />
+
+                        <ProjectDetails 
+                            project='WCDR (Women and Child Development) Project'
                             time='11/2024 - Current' 
                             address='Bhopal'
                             workList={[
@@ -107,9 +150,8 @@ function Experience() {
                             ]}
                         />
 
-                        <Details 
-                            position='Assistant System Engineer (MPPSC Project)' 
-                            company='MPOnline Limited' 
+                        <ProjectDetails 
+                            project='MPPSC (Madhya Pradesh Public Service Commission) Project'
                             time='07/2023 - 11/2024' 
                             address='Bhopal'
                             workList={[
@@ -123,6 +165,7 @@ function Experience() {
                             ]}
                         />
 
+                        {/* ── ART Technology — separate entry ── */}
                         <Details 
                             position='Intern' 
                             company='ART technology' 

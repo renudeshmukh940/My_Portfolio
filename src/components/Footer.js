@@ -20,8 +20,7 @@ const Footer = () => {
                             </Link>
                         </div>
                         <p className="text-sm text-gray-500 mb-6 max-w-sm leading-relaxed font-medium">
-                            Renu empowers teams to transform raw data into clear, compelling insights — 
-                            making complex AI systems easier to build, understand, and scale.
+                            Renu Deshmukh transforms complex data into actionable insights and builds scalable AI-driven solutions that deliver real business impact.
                         </p>
                         <div className="flex items-center justify-center gap-5">
                             <Link href="https://www.hackerrank.com/profile/deshmukhrenu4" target="_blank" className="w-6 text-gray-400 hover:text-[#0894d4] transition-colors"><HackerRankIcon /></Link>
