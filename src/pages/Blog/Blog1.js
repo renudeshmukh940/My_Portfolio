@@ -1,5 +1,33 @@
-import React from "react";
-import  { useState } from "react";
+import React, { useState } from "react";
+import Layout from "@/components/Layout";
+import AnimatedText from "@/components/AnimatedText";
+import Head from "next/head";
+import { motion } from "framer-motion";
+import TransitionEffect from '@/components/TransitionEffect';
+
+const CodeBlock = ({ title, code }) => (
+  <div className="max-w-4xl mx-auto my-10 bg-gray-900 dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-700/50">
+    <div className="flex items-center justify-between bg-gray-800/50 px-6 py-3 border-b border-gray-700/50">
+      <div className="flex space-x-2">
+        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+        <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+      </div>
+      <span className="text-gray-400 font-mono text-xs uppercase tracking-widest">{title}</span>
+    </div>
+    <pre className="p-8 overflow-x-auto text-sm text-green-400 font-mono leading-relaxed bg-black/20">
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+const InfoCard = ({ icon, title, description }) => (
+  <div className="p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-500 group">
+    <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">{icon}</div>
+    <h4 className="text-xl font-black text-gray-900 dark:text-gray-100 mb-3 tracking-tight">{title}</h4>
+    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">{description}</p>
+  </div>
+);
 
 export default function AIAgentsArticle() {
   const [showCommentBox, setShowCommentBox] = useState(false);
@@ -22,82 +50,75 @@ export default function AIAgentsArticle() {
   };
 
   return (
-    <div className="relative px-4 sm:px-8 py-12 min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-black text-gray-900 dark:text-gray-100 transition-all duration-300 overflow-hidden">
+    <>
+      <Head>
+        <title>AI Agents: Future of Automation | Renu Deshmukh</title>
+        <meta name="description" content="A deep dive into AI Agents — exploring their architecture, workflows, and code examples." />
+      </Head>
+      <TransitionEffect />
       
-      {/* Soft Blue Blobs */}
-      <div className="absolute -top-10 -left-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
-      <div className="absolute top-1/2 right-0 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-200 rounded-full blur-2xl opacity-30"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-blue-300 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute top-3/4 left-10 w-32 h-32 bg-blue-100 rounded-full blur-2xl opacity-40"></div>
-      <div className="absolute top-0 right-1/3 w-56 h-56 bg-blue-200 rounded-full blur-3xl opacity-25"></div>
+      <main className="w-full flex flex-col items-center justify-center bg-[#fafafa] dark:bg-dark relative overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/20 rounded-full blur-[120px] -z-10" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-pink-100/20 rounded-full blur-[120px] -z-10" />
 
-      {/* Content */}
-      <div className="relative z-10">
-      <h1 className="text-5xl sm:text-6xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
-        AI Agents: The Future of Automation and Intelligence
-      </h1>
+        <Layout className="!pt-20 pb-32">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="flex flex-col items-center text-center mb-24">
+              <span className="px-5 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-blue-100/50">
+                   Trending in AI
+              </span>
+              <AnimatedText 
+                text="AI Agents: The Future of Automation" 
+                className="!text-7xl lg:!text-6xl md:!text-5xl sm:!text-4xl !text-center mb-10 tracking-tighter" 
+              />
+              <div className="flex items-center gap-6 text-slate-400 font-bold text-xs uppercase tracking-widest">
+                <span>Renu Deshmukh</span>
+                <span className="w-1 h-1 bg-slate-200 rounded-full" />
+                <span>Sept 14, 2025</span>
+              </div>
+            </div>
 
-      {/* Meta Info */}
-      <p className="text-center text-gray-700 dark:text-gray-300 mb-8 text-sm sm:text-base">
-        ✍️ <strong>Author:</strong> Renu Deshmukh | 📅 <strong>Date:</strong> 2025-09-14
-      </p>
+            {/* Intro Card */}
+            <div className="grid grid-cols-1 gap-12 items-center mb-32">
+                <div className="p-12 bg-white dark:bg-gray-800 rounded-[3rem] shadow-2xl border border-slate-100 flex flex-col md:flex-row gap-12 items-center">
+                    <div className="flex-1">
+                        <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">What are AI Agents?</h2>
+                        <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                            AI agents are <strong className="text-blue-600">autonomous systems that sense, reason, plan, act, and learn</strong>. 
+                            They combine LLMs, Machine Learning, vector databases, and APIs to accomplish multi-step tasks with minimal human input.
+                        </p>
+                    </div>
+                    <div className="w-full md:w-1/3 aspect-square rounded-[2rem] overflow-hidden shadow-xl">
+                        <img src="/images/AIAgentWorkFlow.png" alt="AI Agent" className="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
 
-      {/* Intro */}
-      <p className="text-lg leading-relaxed text-center max-w-3xl mx-auto mb-8">
-        💡 <strong>A deep dive into AI Agents</strong> — exploring their architecture, workflows, technologies, code examples, and future trends.
-      </p>
-<h2 className="text-2xl sm:text-3xl font-semibold text-center mb-4 text-gray-900 dark:text-gray-100">
-  What are AI Agents
+            {/* Content Sections */}
+            <div className="space-y-32">
+                <section>
+                    <h2 className="text-4xl font-black text-slate-900 mb-8 tracking-tight">🤖 How to Build a Basic AI Agent</h2>
+                    <p className="text-xl text-slate-500 font-medium leading-relaxed mb-10">
+                        AI agents are software programs that <strong>observe, decide, and act</strong> to achieve goals. Follow this guide to create a simple agent using Python.
+                    </p>
+                    
+                    <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
+                        <h3 className="text-sm font-black uppercase tracking-widest text-blue-600 mb-6">Tools & Requirements</h3>
+                        <ul className="grid grid-cols-2 sm:grid-cols-1 gap-4">
+                            {["Python 3.8+", "Numpy Library", "TensorFlow / PyTorch", "OpenAI APIs"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl text-slate-700 font-bold text-sm">
+                                    <span className="w-2 h-2 rounded-full bg-blue-500" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-</h2>
-
-
-
-      {/* Info Box with Image */}
-<div className="max-w-3xl mx-auto mb-10 p-6 border-l-4 border-indigo-500 bg-indigo-50 dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-6 min-h-[200px]">
-  {/* Text Section */}
-  <div className="flex-1 text-gray-900 dark:text-gray-100 text-lg">
-    AI agents are <strong className="text-indigo-600 dark:text-indigo-400">autonomous systems that sense, reason, plan, act, and learn</strong>. 
-    They combine LLMs, ML, vector databases, and APIs to accomplish multi-step tasks with minimal human input.
-  </div>
-
-  
-</div>
-{/* Image Section */}
-   <div className="flex justify-center md:justify-end flex-shrink-0">
-    <img 
-      src="/images/AIAgentWorkFlow.png" 
-      alt="AI Agent Diagram" 
-      className="rounded-2xl shadow-lg max-w-md h-auto object-cover"
-    />
-  </div>
-
-      {/* Sections */}
-      <h2 className="text-3xl sm:text-4xl text-center font-bold mt-10 mb-4">🤖 How to Build a Basic AI Agent</h2>
-      <p className="text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
-  AI agents are software programs that <strong>observe, decide, and act</strong> to achieve goals. Here&apos;s a step-by-step guide to creating a simple AI agent using Python.
-</p>
-
-
-      <h3 className="text-2xl text-center font-semibold mt-6 mb-2">1. Tools & Requirements</h3>
-      <ul className="list-disc pl-6 space-y-2 mb-6 max-w-3xl mx-auto">
-        <li>Python 3.8+ installed</li>
-        <li>Optional: Libraries like <code>numpy</code> for calculations</li>
-        <li>Advanced: <code>TensorFlow</code>, <code>PyTorch</code>, or APIs for more complex agents</li>
-      </ul>
-
-      {/* Code Block Style */}
-      <div className="max-w-4xl mx-auto my-6 bg-gray-900 dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-700">
-        <div className="flex items-center space-x-2 bg-gray-800 px-4 py-2">
-          <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-          <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-          <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-          <span className="ml-2 text-gray-300 font-mono text-sm">chat_agent.py</span>
-        </div>
-        <pre className="p-6 overflow-x-auto text-sm text-green-400 font-mono">
-{`# Simple Chatbot AI Agent
+                    <CodeBlock 
+                        title="chat_agent.py"
+                        code={`# Simple Chatbot AI Agent
 import random
 
 class ChatAgent:
@@ -130,35 +151,20 @@ while True:
     agent.act(response)
     if "bye" in observation:
         break`}
-        </pre>
-      </div>
-      <h3 className="text-2xl text-center font-semibold mt-6 mb-2">2. How It Works</h3>
-      <ul className="list-disc pl-6 space-y-2 mb-6 max-w-3xl mx-auto">
-        <li><strong>observe():</strong> Receives input from the environment.</li>
-        <li><strong>decide():</strong> Determines next action using logic.</li>
-        <li><strong>act():</strong> Executes action and adjusts based on feedback.</li>
-      </ul>
+                    />
+                </section>
 
-      <div className="max-w-3xl mx-auto p-6 mb-8 border-l-4 border-indigo-500 bg-indigo-50 dark:bg-gray-700 rounded-lg shadow-md">
-        <strong>Key takeaway:</strong> Even simple programs can be AI agents if they observe, decide, and act. Start small and gradually build more advanced autonomous systems.
-      </div>
+                <section>
+                    <h2 className="text-4xl font-black text-slate-900 mb-8 tracking-tight">🏗 Multi-step AI Agent Example (JS)</h2>
+                    <div className="grid grid-cols-3 md:grid-cols-1 gap-12 mb-12">
+                        <InfoCard icon="👁️" title="Observe" description="Receives input from the environment or user." />
+                        <InfoCard icon="🧠" title="Decide" description="Determines next action using deep reasoning logic." />
+                        <InfoCard icon="🚀" title="Act" description="Executes action and adjusts based on feedback loops." />
+                    </div>
 
-      {/* Multi-step AI Agent */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">🏗 Multi-step AI Agent Example (JavaScript)</h2>
-      <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-4">
-        This example shows a **goal-driven AI agent** using OpenAI GPT API. The agent breaks a goal into steps, executes tasks like web searches, and stores results in memory.
-      </p>
-
-      {/* Multi-step JS Code Block */}
-      <div className="max-w-4xl mx-auto my-6 bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-700">
-        <div className="flex items-center space-x-2 bg-gray-800 px-4 py-2">
-          <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-          <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-          <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-          <span className="ml-2 text-gray-300 font-mono text-sm">multi_step_agent.js</span>
-        </div>
-        <pre className="p-6 overflow-x-auto text-sm text-green-400 font-mono">
-{`import OpenAI from "openai";
+                    <CodeBlock 
+                        title="multi_step_agent.js"
+                        code={`import OpenAI from "openai";
 import fetch from "node-fetch";
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -187,142 +193,78 @@ async function runAgent(goal) {
 }
 
 runAgent("Find AI news today").then(console.log);`}
-        </pre>
-      </div>
+                    />
+                </section>
 
-      <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-        <strong>Summary:</strong> Demonstrates a goal-driven AI agent workflow. The agent observes a goal, plans steps via GPT, acts by executing tasks, and stores results. This is similar to how autonomous agents like AutoGPT or BabyAGI function.
-      </p>
+                <section className="bg-slate-900 rounded-[3rem] p-16 text-white text-center">
+                    <h2 className="text-4xl font-black mb-8 tracking-tight">🔍 Future Directions</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-1 gap-6 text-left">
+                        {[
+                            { t: "Multi-agent systems", d: "Collaborating on cross-domain problems." },
+                            { t: "Hyper-personalized", d: "Experiences tailored to individual needs." },
+                            { t: "Emotion-aware", d: "Empathetic voice and video interfaces." },
+                            { t: "AI + Robotics", d: "Bringing digital intelligence to real-world automation." }
+                        ].map((item, i) => (
+                            <div key={i} className="p-6 bg-white/5 rounded-2xl border border-white/10">
+                                <h4 className="text-lg font-black mb-2 text-blue-400">{item.t}</h4>
+                                <p className="text-slate-400 text-sm font-medium">{item.d}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
-      {/* Core Components */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">🔍 Core Components</h2>
-      <ul className="list-disc pl-6 space-y-3 max-w-3xl mx-auto mb-8">
-        <li><strong>Perception:</strong> Ingest input (text, images, APIs, sensors)</li>
-        <li><strong>Reasoning & Planning:</strong> Decompose goals into steps using LLMs or planners</li>
-        <li><strong>Action:</strong> Execute API calls, control devices, or update data</li>
-        <li><strong>Memory:</strong> Maintain context & long-term knowledge</li>
-        <li><strong>Learning:</strong> Improve from feedback & reinforcement</li>
-      </ul>
+                <section>
+                    <h2 className="text-4xl font-black text-slate-900 mb-12 text-center tracking-tight">Discussion & Community</h2>
+                    <div className="bg-white p-12 rounded-[3.5rem] border border-slate-100 shadow-2xl">
+                        <div className="text-center mb-12">
+                            <button
+                                className="px-10 py-5 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full font-black uppercase tracking-widest text-xs shadow-xl hover:scale-105 transition-all"
+                                onClick={() => setShowCommentBox(!showCommentBox)}
+                            >
+                                {showCommentBox ? "Close Discussion" : "Post Your Thought"}
+                            </button>
+                        </div>
 
-      {/* Technologies */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">🛠️ Technologies Powering Agents</h2>
-      <ul className="list-disc pl-6 space-y-2 max-w-3xl mx-auto mb-8">
-        <li>Large Language Models (GPT-4, Claude, Gemini)</li>
-        <li>Vector Databases (Pinecone, Weaviate, FAISS)</li>
-        <li>Frameworks (LangChain, CrewAI, LlamaIndex)</li>
-        <li>Reinforcement Learning & Planning Algorithms</li>
-        <li>Safety & Human-in-the-Loop Oversight</li>
-      </ul>
+                        {showCommentBox && (
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
+                                <textarea
+                                    className="w-full p-8 rounded-3xl border border-slate-200 bg-slate-50 text-slate-900 font-medium focus:ring-2 focus:ring-blue-500 outline-none mb-4"
+                                    rows={4}
+                                    placeholder="Write your insight..."
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                />
+                                <button className="px-8 py-3 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-[10px]" onClick={handleSubmit}>
+                                    Submit Insight
+                                </button>
+                            </motion.div>
+                        )}
 
-      {/* Future of AI Agents */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">🔮 The Future of AI Agents</h2>
-      <ul className="list-disc pl-6 space-y-2 max-w-3xl mx-auto mb-8">
-        <li>Multi-agent systems collaborating on cross-domain problems</li>
-        <li>Hyper-personalized user experiences</li>
-        <li>Emotion-aware, empathetic voice interfaces</li>
-        <li>AI + Robotics for real-world automation</li>
-        <li>Human-in-the-loop training & oversight</li>
-      </ul>
+                        <div className="space-y-6">
+                            {commentsList.slice(0, visibleCount).map((c, i) => (
+                                <div key={i} className="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition-all hover:bg-white hover:shadow-xl">
+                                    <p className="text-slate-700 font-medium mb-3 leading-relaxed">{c.text}</p>
+                                    <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                                        <span>User Insight</span>
+                                        <span className="w-1 h-1 bg-slate-200 rounded-full" />
+                                        <span>{c.date}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
-      {/* Benefits & Challenges */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">✅ Benefits & ⚠️ Challenges</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
-        <div>
-          <h4 className=" font-semibold mb-2">Benefits</h4>
-          <ul className="  list-disc pl-6 space-y-2">
-            <li>24/7 scalability & automation</li>
-            <li>Reduced manual errors</li>
-            <li>Faster decision-making</li>
-            <li>Personalized outputs</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className=" font-semibold mb-2">Challenges</h4>
-          <ul className=" list-disc pl-6 space-y-2">
-            <li>Safety & reliability concerns</li>
-            <li>Privacy & compliance</li>
-            <li>Reward design in RL</li>
-            <li>Monitoring & observability</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Conclusion */}
-      <h2 className="text-3xl text-center font-bold mt-10 mb-4">🚀 Conclusion</h2>
-      <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-        AI Agents are the next evolution of automation — capable of autonomous reasoning, planning, action, and continuous improvement. When combined with ethical design, they can revolutionize industries, enhance productivity, and act as reliable collaborators for humans.
-      </p>
-
-     {/* Stylish Author Info Box */}
-<div className="max-w-3xl mx-auto mb-8 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white relative overflow-hidden">
-  {/* Optional glow effect */}
-  <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-400 opacity-20 blur-xl pointer-events-none"></div>
-  
-  <div className="relative">
-    ✍️ <strong className="text-white text-lg">Author:</strong> Renu Deshmukh <br /><br />
-    💼 <span className="text-white/90 text-base">
-      This article provides a business and technical overview of AI agents, workflows, tools, and best practices for adoption in 2025.
-    </span>
-  </div>
-</div>
-{/* Comment Section */}
-      <div className="mt-10 max-w-3xl mx-auto text-center">
-        <p className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-          🤔 What do you think about the future of AI agents? Share your thoughts below!
-        </p>
-
-        <button
-          className="px-6 py-3 bg-indigo-600 text-white rounded-xl shadow-md hover:bg-indigo-700 transition mb-4"
-          onClick={() => setShowCommentBox(!showCommentBox)}
-        >
-          {showCommentBox ? "Close Comment Box" : "Share Your Thoughts"}
-        </button>
-
-        {showCommentBox && (
-          <div className="mb-6 text-left">
-            <textarea
-              className="w-full p-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              rows={4}
-              placeholder="Write your comment..."
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            />
-            <button
-              className="mt-2 px-5 py-2 bg-green-600 text-white rounded-xl shadow-md hover:bg-green-700 transition"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-          </div>
-        )}
-
-        {/* Show comments */}
-        <div className="space-y-3">
-          {commentsList.length === 0 && (
-            <p className="text-gray-500 dark:text-gray-400">No comments yet. Be the first to share your thoughts!</p>
-          )}
-          {commentsList.slice(0, visibleCount).map((c, i) => (
-            <div key={i} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-sm text-left">
-              <p className="text-gray-900 dark:text-gray-100">{c.text}</p>
-              <span className="text-xs text-gray-500">{c.date}</span>
+                        {visibleCount < commentsList.length && (
+                            <button className="mt-12 w-full py-4 border-2 border-dashed border-slate-200 rounded-3xl text-slate-400 font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition-all" onClick={() => setVisibleCount(v => v + 5)}>
+                                Load More Discussions
+                            </button>
+                        )}
+                    </div>
+                </section>
             </div>
-          ))}
-        </div>
-
-        {/* Show More Button */}
-        {visibleCount < commentsList.length && (
-          <button
-            className="mt-3 px-5 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition"
-            onClick={() => setVisibleCount(visibleCount + 5)}
-          >
-            Read More Comments
-          </button>
-        )}
-      </div>
-
-      
-    </div>
-  </div>
+          </div>
+        </Layout>
+      </main>
+    </>
   );
 }
 

@@ -7,27 +7,30 @@ import Layout from './Layout';
 import AnimatedText from './AnimatedText';
 
 
-const Details = ({ position, company, time, address, work1, work2, work3 }) => {
+const Details = ({ position, company, time, address, workList }) => {
     const ref = useRef(null);
     return (
-        <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%]'>
+        <li ref={ref} className='my-12 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-start justify-between md:w-[80%]'>
             <LiIcon reference={ref} />
             <motion.div
-                initial={{ y: 200 }}
-                whileInView={{ y: 0 }}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, type: "spring" }}
             >
-                <h3 className='capitalize font-bold text-2xl sm:text-xl xs:text-lg' >
-                    {position}&nbsp; <p className='w-full text-primary capitalize'>@ {company}</p>
+                <h3 className='capitalize font-bold text-2xl sm:text-xl xs:text-lg mb-1' >
+                    {position}&nbsp; <span className='text-primary capitalize'>@ {company}</span>
                 </h3>
-                <span className='capitalize font-medium text-dark/60 md:text-sm sm:text-sm xs:text-sm'>
+                <div className='capitalize font-medium text-black md:text-sm sm:text-sm xs:text-sm mb-4 font-bold'>
                     {time} | {address}
-                </span>
+                </div>
                 <div className='font-medium w-full md:text-sm'>
-                    <ul>
-                        <li>• {work1}</li><br />
-                        <li>• {work2}</li><br />
-                        <li>• {work3}</li>
+                    <ul className='space-y-3'>
+                        {workList.map((item, index) => (
+                            <li key={index} className='flex gap-2 text-black'>
+                                <span className='text-primary font-bold'>•</span>
+                                <span className='font-semibold'>{item}</span>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </motion.div>
@@ -44,41 +47,98 @@ function Experience() {
     return (
         <>
         <Head>
-            <title>
-                Renu | Experience
-            </title>
-            <meta name='description' content='any description' />
+            <title>Renu | Experience</title>
+            <meta name='description' content='Professional experience of Renu Deshmukh' />
         </Head>
         <TransitionEffect />
         <main>
-            <Layout> <AnimatedText text={'Experience'} className='mb-8 xs:text-2xl sm:text-3xl md:text-4xl' />
+            <Layout> 
+                <AnimatedText text={'Professional Journey'} className='mb-16 xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter' />
   
-  
-            <div ref={ref} className='w-[75%] mx-auto relative lg:w-[90%] sm:w-full xs:w-full md:w-full'>
-                <motion.div style={{ scaleY: scrollYProgress }} className='absolute left-9 top-1 w-[6px] h-full bg-green-500 origin-top md:w-[2px] md:left-[30px] xs:left-[20px]' />
-                <ul className='w-full flex flex-col items-start justify-between ml-4 xs:ml-2'>
+                <div ref={ref} className='w-[75%] mx-auto relative lg:w-[90%] sm:w-full xs:w-full md:w-full'>
+                    <motion.div style={{ scaleY: scrollYProgress }} className='absolute left-9 top-1 w-[4px] h-full bg-dark dark:bg-light origin-top md:w-[2px] md:left-[30px] xs:left-[20px]' />
                     
-                    
-                    <Details position={' Assistant System Engineer'} company={'MP Online Limited;'} time={'Jun 2023 - Current'} address={'Bhopal'}
-                        work1=' MPPSC Project:
-Actively working on the MPPSC portal, ensuring smooth functionality and timely delivery across major modules such as Application Form, Objection, Call Letter, Admit Card, and Refunds.'
-                        work2='Technologies Used:
-ASP.NET MVC, SQL Server, JavaScript, HTML, CSS, Reporting Server, jQuery, Bootstrap'
-                        work3='Role & Contributions:
-Developed secure application forms, ShowRecipt and Unpaid application form with OTP verification, integrated SMS/email confirmations, and receipt generation. Managed end-to-end workflows for objections and result processing, including question jumbling logic. the generate of Admit Cards and Call Letters based on candidate eligibility. Streamlined refund and refund objection processes with proper validations. Regularly conducted security audits, implementing DoS protection, CAPTCHA, input validation, and access control to ensure portal safety and compliance.' />
-                    
-                    
-                    <Details position={'Intern'} company={'ART technology'} time={'MAR 2023 - MAY 2023'} address={'Bhopal'}
-                        work1=' Technologies Used :
-SQL Server (SSMS, SSIS) | Power BI | Python | Web Scraping'
-                        work2='SQL Server & Power BI :
-Worked extensively with SQL Server using SSMS and SSIS to design, optimize, and maintain dynamic SQL scripts and queries. Proficient in all key SQL command types (DDL, DML, DCL, DQL, TCL), with a focus on data accuracy and integrity. Developed custom reports and dashboards using Power BI and SSRS, enabling clear visualization of data and performance metrics.'
-                        work3='Python & Web Scraping :
-Completed small-scale projects using Python for data automation and analysis. Built web scraping scripts to extract data from various sources, supporting reporting and decision-making workflows. Leveraged Python for cleaning, transforming, and integrating scraped data into analytical tools like Power BI.' />
-                </ul>
-            </div>
-        <div className='my-40'> </div>
-        </Layout>
+                    <ul className='w-full flex flex-col items-start justify-between ml-4 xs:ml-2'>
+                        
+                        <Details 
+                            position='Assistant System Engineer (OSMS Project)' 
+                            company='MPOnline Limited' 
+                            time='01/2026 - Current' 
+                            address='Bhopal'
+                            workList={[
+                                "Designed and implemented an end-to-end AI pipeline to extract structured data from handwritten school registers using OCR and image processing.",
+                                "Utilized EasyOCR/Tesseract for handwritten text recognition and applied preprocessing techniques (noise removal, image enhancement) to improve extraction accuracy.",
+                                "Built a data post-processing module to map unstructured OCR output into structured tabular format aligned with original register columns.",
+                                "Developed a scalable backend system to store extracted data into SQL Server with validation and error handling mechanisms.",
+                                "Created an interactive UI to visualize extracted data in grid format and implemented Excel export functionality for reporting and analysis.",
+                                "Reduced manual data entry effort by automating digitization of handwritten records and improved operational efficiency."
+                            ]}
+                        />
+
+                        <Details 
+                            position='Assistant System Engineer (MPBSE Project)' 
+                            company='MPOnline Limited' 
+                            time='01/2026 - Current' 
+                            address='Bhopal'
+                            workList={[
+                                "Developed and maintained application modules for Classes 9th–12th, including Main Form, Late Fee Form, and Edit Application Form.",
+                                "Contributed to the Result Module, ensuring accurate data processing and seamless result display.",
+                                "Implemented AI-based face validation to verify student photo uploads and prevent incorrect or mismatched images.",
+                                "Developed AI-driven document validation to detect blank, blurred, or unreadable images/PDFs, improving data quality.",
+                                "Applied validation checks to ensure uploaded documents meet clarity and readability standards.",
+                                "Designed and optimized SQL queries and stored procedures for efficient data handling.",
+                                "Technologies: ASP.NET (C#), MVC, SQL Server, JavaScript, Python, n8n, LLM APIs."
+                            ]}
+                        />
+
+                        <Details 
+                            position='Assistant System Engineer (WCDR Project)' 
+                            company='MPOnline Limited' 
+                            time='11/2024 - Current' 
+                            address='Bhopal'
+                            workList={[
+                                "Developed and maintained core modules including Application Form, Edit Application, Document Verification, and Objection Management.",
+                                "Implemented vacancy collection system across multiple administrative levels (State, District, Block, CDPO, DPO).",
+                                "Contributed to Pre-Provisional and Final Merit List generation for Worker and Helper posts.",
+                                "Designed and deployed an AI-powered chatbot using n8n workflows and LLM APIs integrated with the Chayan Portal.",
+                                "Worked on AI-driven automation workflows to streamline repetitive processes and reduce manual effort.",
+                                "Performed data validation, bug fixing, and performance optimization to ensure stable system functionality.",
+                                "Technologies: ASP.NET MVC, C#, SQL Server, Python, n8n, LLM APIs."
+                            ]}
+                        />
+
+                        <Details 
+                            position='Assistant System Engineer (MPPSC Project)' 
+                            company='MPOnline Limited' 
+                            time='07/2023 - 11/2024' 
+                            address='Bhopal'
+                            workList={[
+                                "Designed Power BI dashboards to visualize application trends, objection resolution rates, and refund analytics, improving decision-making by 20%.",
+                                "Developed and optimized SQL queries to process 100,000+ candidate records for workflows, results, and refunds.",
+                                "Worked on Application, Edit, and Court Case modules, implementing dynamic business logic based on government rules.",
+                                "Automated admit card and call letter generation using ASP.NET MVC and SQL Server, improving operational efficiency.",
+                                "Built an AI-powered system to extract and process data from handwritten registers and 40-60 page rulebooks using OCR and LLMs.",
+                                "Designed an end-to-end pipeline to convert unstructured handwritten/PDF data into structured format for form generation.",
+                                "Conducted security audits implementing DoS protection, CAPTCHA, and input validation for large-scale systems."
+                            ]}
+                        />
+
+                        <Details 
+                            position='Intern' 
+                            company='ART technology' 
+                            time='03/2023 - 05/2023' 
+                            address='Bhopal'
+                            workList={[
+                                "Worked extensively with SQL Server (SSMS, SSIS) to design, optimize, and maintain dynamic SQL scripts and queries.",
+                                "Developed custom reports and dashboards using Power BI and SSRS for data visualization.",
+                                "Built web scraping scripts using Python to extract data from various sources supporting decision-making workflows.",
+                                "Leveraged Python for cleaning, transforming, and integrating scraped data into analytical tools."
+                            ]}
+                        />
+                    </ul>
+                </div>
+                <div className='my-40'> </div>
+            </Layout>
         </main>
         </>
     );

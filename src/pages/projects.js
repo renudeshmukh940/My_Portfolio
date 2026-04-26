@@ -162,7 +162,6 @@ const projectsData = [
 
 const Projects = () => {
     const [filter, setFilter] = useState('Latest');
-    // const [hoveredProject, setHoveredProject] = useState(null);
     const [selectedProject, setSelectedProject] = useState(null);
 
     const handleProjectClick = (project) => {
@@ -178,85 +177,195 @@ const Projects = () => {
         setFilter(category);
     };
 
+    const categories = [
+        { name: 'Latest', tag: 'Latest' },
+        { name: 'Data Analyst', tag: 'data_analyst' },
+        { name: 'Machine Learning', tag: 'machine_learning' },
+        { name: 'SAAS Projects', tag: 'sda' },
+        { name: 'Artificial Intelligence', tag: 'ai' },
+    ];
+
     return (
         <>
             <Head>
-                <title>Renu | Projects Page</title>
-                <meta name='description' content='any description' />
+                <title>Renu Deshmukh | Projects</title>
+                <meta name='description' content='Showcase of personal and professional projects in AI, Data Science, and Software Engineering.' />
             </Head>
             <TransitionEffect />
 
-            <main className='w-auto mb-16 flex flex-col items-center justify-center '>
-                <Layout className='pt-2'>
-                    <AnimatedText text={'Personal Projects'} className='pb-2 sm:text-5xl xs:text-2xl' />
-                    <div className="container mx-auto xs:items-center">
-                        <div className="mb-4 my-12 flex flex-row items-center justify-center xs:grid xs:grid-cols-2 sm:grid sm:grid-cols-2">
-                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('Latest')}>Latest</button>
-                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('data_analyst')}>Data Analyst</button>
-                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('machine_learning')}>Machine Learning</button>
-                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('sda')}>SAAS Projects</button>
-                            <button className="mr-2 mb-2 px-4 py-2 xs:px-1 xs:py-2 xs:text-xs sm:px-1 sm:py-2 sm:text-xs md:px-2 md:py-2 md:text-base lg:px-2 lg:py-2 lg:text-base bg-blue-500 text-white rounded hover:bg-blue-600 shadow-md shadow-blue-900" onClick={() => handleFilterChange('ai')}>Artifical Intelligence</button>
+            <main className='w-full flex flex-col items-center justify-center bg-[#fafafa] relative overflow-hidden'>
+                {/* Background decorative elements */}
+                <div className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[120px] -z-10" />
+                <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-pink-100/30 rounded-full blur-[120px] -z-10" />
+
+                <Layout className='pt-16 pb-40'>
+                    <div className="flex flex-col items-center justify-center text-center relative">
+                        {/* Decorative background oval glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[150%] bg-blue-100/10 rounded-[100%] blur-[120px] -z-10" />
+                        
+                        <AnimatedText 
+                            text="Personal Projects" 
+                            className="!text-8xl xl:!text-7xl lg:!text-6xl md:!text-5xl sm:!text-4xl font-black text-slate-900 tracking-tighter" 
+                        />
+                        <p className="max-w-2xl text-slate-500 font-medium text-lg mt-4 mb-16 leading-relaxed">
+                            Developing intelligent systems and data-driven solutions to solve complex real-world problems.
+                        </p>
+
+                        {/* Oval Filter Section */}
+                        <div className="w-full flex flex-wrap items-center justify-center gap-3 mb-24">
+                            {categories.map(cat => (
+                                <button 
+                                    key={cat.tag}
+                                    onClick={() => handleFilterChange(cat.tag)}
+                                    className={`px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 border
+                                        ${filter === cat.tag 
+                                            ? 'bg-gradient-to-r from-blue-600 to-pink-600 text-white border-transparent shadow-[0_10px_30px_rgba(59,130,246,0.2)] scale-110' 
+                                            : 'bg-white text-slate-400 border-slate-100 hover:text-slate-900 hover:border-blue-400'}`}
+                                >
+                                    {cat.name}
+                                </button>
+                            ))}
                         </div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 120 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="grid grid-cols-3 gap-8 pt-10 w-full xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 "
-                        >
-                            {filteredProjects.slice(0, 9).map(project => (
-                                <div key={project.id} className="project-container bg-gray-100 p-4 m-2 rounded-[2rem] relative">
-                                    <div className=' project-container absolute top-0 -right-3 -z-10 w-[102%] h-[103%]  rounded-[2rem] bg-dark' />
-                                    <Image className='h-[70%] rounded-[1rem]  sm:h-[55%] md:h-[55%] lg:h-[60%]' src={project.image} alt={project.title} width={400} height={300} />
-                                    <h4 className="text-lg md:text-lg sm:text-lg xs:text-sm font-semibold mb-2 flex flex-col items-center">{project.title}</h4>
-                                    <p className="text-sm mb-2">Category: {project.category}</p>
-                                    <div className="flex justify-evenly mb-2">
-                                        {project.link && project.link.trim() !== '' && (
-                                            <a href={project.link} target='_blank' className="btn btn-sm bg-blue-500 hover:bg-blue-300 text-white px-2 py-1 rounded-lg">View Live</a>
+                    </div>
+
+                    {/* Project Grid */}
+                    <motion.div
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="grid grid-cols-3 xl:grid-cols-2 md:grid-cols-1 gap-12 w-full"
+                    >
+                        {filteredProjects.map((project, index) => (
+                            <motion.div 
+                                layout
+                                key={project.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                viewport={{ once: true }}
+                                className="group relative bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden shadow-[0_10px_30px_rgba(59,130,246,0.03)] hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
+                            >
+                                <div className="p-8 flex flex-col h-full">
+                                    <div className="w-full aspect-video rounded-3xl overflow-hidden mb-8 bg-slate-50">
+                                        <Image 
+                                            src={project.image} 
+                                            alt={project.title} 
+                                            className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700'
+                                            width={400} 
+                                            height={300} 
+                                            priority={index < 3}
+                                        />
+                                    </div>
+                                    
+                                    <div className="flex flex-col flex-grow">
+                                        <span className="self-start px-4 py-1 bg-gradient-to-r from-blue-50 to-pink-50 text-blue-600 rounded-full text-[9px] font-black uppercase tracking-[0.15em] mb-4 border border-blue-100/50">
+                                            {project.category}
+                                        </span>
+                                        <h3 className="text-xl font-black text-slate-900 mb-4 transition-colors leading-tight">{project.title}</h3>
+                                        <p className="text-slate-500 text-xs font-medium leading-relaxed line-clamp-2 mb-8">
+                                            {project.description}
+                                        </p>
+                                    </div>
+                                    
+                                    <div className="flex items-center gap-3 mt-auto">
+                                        {project.link && (
+                                            <a href={project.link} target='_blank' rel="noopener noreferrer" 
+                                               className="flex-1 py-4 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full text-[9px] font-black uppercase tracking-widest text-center shadow-lg shadow-blue-500/10 hover:shadow-pink-500/20 transition-all hover:-translate-y-0.5">
+                                                View Live
+                                            </a>
                                         )}
-                                        <button className="btn btn-sm bg-blue-500 hover:bg-blue-300 text-white px-2 py-1 rounded-lg" onClick={() => handleProjectClick(project)}>About Project</button>
+                                        <button 
+                                            onClick={() => handleProjectClick(project)}
+                                            className={`flex-1 py-4 bg-slate-50 text-slate-600 rounded-full text-[9px] font-black uppercase tracking-widest text-center hover:bg-slate-100 transition-all hover:shadow-md hover:-translate-y-0.5 border border-slate-100 ${!project.link ? 'w-full flex-none' : ''}`}
+                                        >
+                                            Learn More
+                                        </button>
                                     </div>
                                 </div>
-                            ))}
-                        </motion.div>
-                    </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </Layout>
             </main>
-            {/* Modal for displaying project details */}
-            {selectedProject &&
-                (
-                    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
-                        <div className="max-w-3xl w-full max-h-screen bg-white p-8 rounded-lg relative overflow-y-auto">
-                            <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={handleCloseModal}>
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                            <h2 className="text-xl font-bold mb-4">{selectedProject.title}</h2>
-                            {selectedProject && selectedProject.video ? (
-                                <div className="video-container relative items-center" style={{ paddingBottom: selectedProject && selectedProject.aspectRatio ? `${(1 / selectedProject.aspectRatio) * 100}%` : '56.25%' }}>
-                                    <video controls src={selectedProject.video} className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+
+            {/* Premium Details Modal */}
+            {selectedProject && (
+                <div className="fixed inset-0 w-full h-full flex items-center justify-center p-8 xs:p-4 z-[99] bg-slate-900/40 backdrop-blur-md overflow-hidden">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="max-w-4xl w-full max-h-[90vh] bg-white rounded-[3rem] p-12 xs:p-6 relative overflow-y-auto shadow-2xl border border-white"
+                    >
+                        <button className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-slate-900 hover:bg-pink-600 hover:text-white transition-all z-50" onClick={handleCloseModal}>
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+
+                        <div className="flex flex-col">
+                            <span className="px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-[9px] font-black uppercase tracking-widest self-start mb-4">
+                                {selectedProject.category}
+                            </span>
+                            <h2 className="text-4xl xs:text-2xl font-black text-slate-900 mb-8 tracking-tighter">{selectedProject.title}</h2>
+                            
+                            {selectedProject.video ? (
+                                <div className="w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl bg-black mb-10">
+                                    <video controls src={selectedProject.video} className="w-full h-full object-cover" />
                                 </div>
                             ) : (
-                                <h2 className='flex flex-col items-center font-bold text-sm py-4' >No Demo Videos available. Visit the Deployed link,<p className='text-red-600'>Click Go live</p></h2>
+                                <div className="w-full aspect-video rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-blue-50 to-pink-50 flex flex-col items-center justify-center p-10 text-center mb-10 border border-slate-100">
+                                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-blue-500 mb-4 shadow-xl">
+                                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <p className="text-slate-400 font-bold uppercase text-[10px] tracking-widest">No Demo Video Available</p>
+                                    <p className="text-slate-900 font-black mt-2">Visit the Deployed Link to see it in action.</p>
+                                </div>
                             )}
 
-                            <ul className="list-disc pl-4 mb-4 mt-2">
-                                {selectedProject.description.split('.').map((sentence, index) => (
-                                    <li key={index}>{sentence}</li>
-                                ))}
-                            </ul>
-
-                            <p className="text-xs text-blue-700 flex flex-col items-center justify-center font-bold py-2">{selectedProject.techStack}</p>
-                            <div className='flex flex-row justify-between'>
-                                {selectedProject.link && (
-                                    <a href={selectedProject.link} target='_blank' className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Go Live</a>
-                                )}
-                                <a href={selectedProject.code} target='_blank' className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Code Base</a>
+                            <div className="grid grid-cols-3 md:grid-cols-1 gap-12">
+                                <div className="col-span-2 space-y-6">
+                                    <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 border-b border-slate-100 pb-3">Project Narrative</h4>
+                                    <ul className="space-y-4">
+                                        {selectedProject.description.split('.').filter(s => s.trim()).map((sentence, index) => (
+                                            <li key={index} className="flex gap-3 text-slate-600 font-medium leading-relaxed">
+                                                <span className="shrink-0 w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center mt-1">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                                                </span>
+                                                {sentence.trim()}.
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="flex flex-col gap-8">
+                                    <div>
+                                        <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 border-b border-slate-100 pb-3 mb-6">Technologies</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedProject.techStack.replace('Tech Stack: ', '').split(', ').map((tech, i) => (
+                                                <span key={i} className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-lg text-slate-600 font-bold text-[10px]">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex flex-col gap-3 mt-auto">
+                                        {selectedProject.link && (
+                                            <a href={selectedProject.link} target='_blank' rel="noopener noreferrer" className="w-full py-4 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest text-center shadow-lg shadow-blue-500/20">
+                                                Go Live
+                                            </a>
+                                        )}
+                                        <a href={selectedProject.code} target='_blank' rel="noopener noreferrer" className="w-full py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest text-center hover:bg-slate-800 transition-colors">
+                                            Source Code
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div >
-                )
-            }
+                    </motion.div>
+                </div>
+            )}
         </>
     )
 }
