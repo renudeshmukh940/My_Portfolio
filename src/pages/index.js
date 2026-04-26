@@ -1,25 +1,30 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Inter } from 'next/font/google'
-import Layout from '@/components/Layout'
-import profilePic from '../../public/images/profile/yellow_img.png'
-import heroViz from 'C:/Users/Vidhv/.gemini/antigravity/brain/e2e83edb-8573-498c-a8eb-7daa44c6b8e3/gold_data_viz_hero_1777145340447.png'
-import AnimatedText from '@/components/AnimatedText'
-import { LinkArrow } from '@/components/Icons'
-import HireMe from '@/components/HireMe'
-import lightbulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
-import TransitionEffect from '@/components/TransitionEffect'
-import { motion } from 'framer-motion'
+import Head from "next/head";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Layout from "@/components/Layout";
+import TransitionEffect from "@/components/TransitionEffect";
+import { LinkArrow } from "@/components/Icons";
+import AnimatedText from "@/components/AnimatedText";
 
-const inter = Inter({ subsets: ['latin'] })
-
-const floatingAnimation = {
-  initial: { y: 0 },
-  animate: {
-    y: [-20, 0, -20],
+const container = {
+  hidden: {},
+  show: {
     transition: {
-      duration: 6,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const floatingAnim = {
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 4,
       repeat: Infinity,
       ease: "easeInOut"
     }
@@ -30,150 +35,153 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Renu Deshmukh | Data Analyst Portfolio</title>
-        <meta name="description" content="Portfolio of Renu Deshmukh, a Data Analyst specializing in SQL, Python, and Power BI." />
+        <title>Renu Deshmukh | Data Visionary & AI Enthusiast</title>
+        <meta name="description" content="Portfolio of Renu Deshmukh, Data Analyst and AI Engineer." />
       </Head>
+
       <TransitionEffect />
-      <main className='flex flex-col items-center text-dark w-full min-h-screen bg-[#fafaf9] overflow-hidden relative'>
-        
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-full -z-10 bg-[radial-gradient(circle_at_50%_-20%,#fef3c7,transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-100/20 rounded-full blur-[120px] -z-10" />
-        
-        <Layout className='pt-16 md:pt-24 sm:pt-32'>
-          <div className='flex items-center justify-between w-full lg:flex-col gap-12'>
+
+      <main className="relative min-h-screen bg-[#fdfaff] overflow-hidden selection:bg-amber-200">
+        {/* ✨ DYNAMIC BACKGROUND LAYERS */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-amber-200/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-orange-200/20 rounded-full blur-[120px] animate-pulse" />
+          
+          {/* Subtle Mesh Grid */}
+          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
+
+        <Layout className="pt-12 pb-32 xl:pt-16 md:pt-12">
+          <div className="flex flex-row lg:flex-col items-center justify-between gap-20 lg:gap-16">
             
-            {/* Left Section: Visuals */}
-            <div className='w-1/2 md:w-full flex items-center justify-center relative lg:scale-100'>
-              
-              {/* Main Visual Composition */}
-              <motion.div 
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="relative w-full max-w-[400px] aspect-square group"
+            {/* LEFT SIDE: CONTENT */}
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="w-1/2 lg:w-full flex flex-col items-start lg:items-center lg:text-center"
+            >
+
+              {/* Heading */}
+              <div className="relative">
+                <AnimatedText 
+                  text="Decoding Data."
+                  className="!text-6xl xl:!text-5xl lg:!text-4xl md:!text-3xl !text-left lg:!text-center !font-black !p-0"
+                />
+                <motion.div variants={fadeUp}>
+                  <h1 className="text-6xl xl:text-5xl lg:text-4xl md:text-3xl font-black leading-tight tracking-tighter">
+                    <span className="bg-gradient-to-r from-amber-500 via-orange-600 to-amber-700 bg-clip-text text-transparent">
+                      Driving Decisions.
+                    </span>
+                  </h1>
+                </motion.div>
+                <AnimatedText 
+                  text="Delivering Impact."
+                  className="!text-6xl xl:!text-5xl lg:!text-4xl md:!text-3xl !text-left lg:!text-center !font-black !p-0"
+                />
+              </div>
+
+              {/* Description */}
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 text-lg xl:text-base md:text-sm text-slate-600 leading-relaxed max-w-xl font-medium"
               >
-                {/* Background Viz Image */}
-                <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden rotate-6 group-hover:rotate-3 transition-transform duration-700 shadow-2xl opacity-60">
-                   <Image src={heroViz} alt="Data Visualization" fill className="object-cover" priority />
-                </div>
+                Hi, I’m{" "}
+                <span className="font-black text-slate-900 relative inline-block">
+                  Renu Deshmukh
+                  <span className="absolute left-0 bottom-1 w-full h-2 bg-amber-400/30 -z-10" />
+                </span>{" "}
+                — a Data Analyst evolving into an <span className="text-orange-600 font-bold">AI Engineer</span>. I architect systems that transform raw data into intelligent, scalable solutions.
+              </motion.p>
 
-                {/* Profile Image Wrapper */}
-                <div className="absolute inset-4 rounded-[2rem] overflow-hidden -rotate-3 group-hover:rotate-0 transition-transform duration-700 shadow-2xl bg-white border-[8px] border-white z-10">
-                   <Image 
-                     src={profilePic} 
-                     alt="Renu Deshmukh" 
-                     className='w-full h-auto transform group-hover:scale-105 transition-transform duration-700' 
-                     priority
-                     sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                   />
-                </div>
+              {/* CTA SECTION */}
+              <div className='flex items-center self-start mt-2 lg:self-center'>
+                <Link href="/RenuResume.pdf" target='_blank'
+                  className='flex items-center bg-dark text-light p-2.5 px-6 rounded-lg 
+                  text-lg font-semibold hover:bg-light hover:text-dark border-2 border-soild 
+                  border-transparent hover:border-dark lg:items md:p-2 md:px-4 md:text-base'
+                  download={true} >Resume<LinkArrow className={'w-6 ml-1'} />
+                </Link>
+                <Link href="/contacts"
+                  className='ml-4 text-lg font-medium capitalize text-dark underline md:text-base'>
+                  Contact ME</Link>
 
-                {/* Floating Tech Badges */}
-                <motion.div 
-                  animate={{ y: [10, -10, 10], x: [5, -5, 5] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="absolute -top-4 -right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl z-20 border border-amber-100"
-                >
-                  <span className="text-amber-600 font-bold text-sm">Python / SQL</span>
-                </motion.div>
-
-                <motion.div 
-                  animate={{ y: [-10, 10, -10], x: [-5, 5, -5] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                  className="absolute -bottom-8 -left-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl z-20 border border-amber-100"
-                >
-                  <span className="text-orange-600 font-bold text-sm">Power BI Specialist</span>
-                </motion.div>
-              </motion.div>
-
-              {/* Luminous Aura behind elements */}
-              <div className='absolute w-[70%] h-[70%] bg-amber-400/10 rounded-full blur-[100px] -z-10' />
-            </div>
-
-            {/* Right Section: Content */}
-            <div className='w-1/2 flex flex-col items-start self-center sm:w-full lg:w-full lg:items-center lg:text-center pl-12 lg:pl-0'>
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-amber-50 border border-amber-100 text-amber-700 font-bold text-xs uppercase tracking-widest animate-bounce">
-                Available for New Projects
               </div>
               
-              <AnimatedText 
-                text="Decoding Data. Driving Decisions. Delivering Impact."
-                className='!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-4xl md:!text-3xl sm:!text-2xl font-black text-black leading-tight' 
-              />
+            </motion.div>
+
+            {/* RIGHT SIDE: VISUALS */}
+            <div className="w-1/2 lg:w-full relative h-[600px] xl:h-[500px] md:h-[400px] flex items-center justify-center lg:mt-8">
               
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className='my-8 text-lg font-medium md:text-base sm:text-sm text-gray-600 leading-relaxed max-w-xl'
+              {/* Central Neural Core */}
+              <motion.div
+                variants={floatingAnim}
+                animate="animate"
+                className="relative w-[320px] h-[320px] xl:w-[260px] xl:h-[260px] md:w-[200px] md:h-[200px] rounded-[3.5rem] bg-white/40 backdrop-blur-3xl border border-white/50 shadow-[0_30px_60px_rgba(245,158,11,0.15)] flex items-center justify-center group overflow-hidden"
               >
-                Hi, I&apos;m <span className="text-dark font-bold underline decoration-amber-400 decoration-4 underline-offset-4">Renu Deshmukh</span> — a passionate Data Analyst specializing in turning complex datasets into clear, actionable insights. 
-                I bridge the gap between technical complexity and business value through expert data storytelling.
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className='flex items-center self-start lg:self-center gap-6'
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Link href="/RenuResume.pdf" target='_blank'
-                    className='flex items-center bg-gradient-to-br from-amber-500 to-orange-600 text-white p-2 px-5 rounded-full
-                    text-base font-bold hover:shadow-[0_10px_20px_-5px_rgba(245,158,11,0.4)] transition-all duration-300 group whitespace-nowrap'
-                    download={true} >
-                    View Resume <LinkArrow className={'w-4 ml-1.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300'} />
-                  </Link>
-                </motion.div>
-                <Link href="/contacts"
-                  className='text-lg font-bold capitalize text-dark relative group'>
-                  Contact Me
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300" />
-                </Link>
+                {/* Inner Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-orange-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-20 h-20 xl:w-16 xl:h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-600 p-0.5 animate-spin-slow">
+                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                       <span className="text-2xl xl:text-xl">📊</span>
+                    </div>
+                  </div>
+                  <span className="mt-6 text-2xl xl:text-xl font-black text-slate-800 tracking-tighter">
+                    DATA + AI
+                  </span>
+                  <div className="mt-2 h-1 w-12 bg-amber-500 rounded-full" />
+                </div>
+
+                {/* Decorative particles */}
+                <div className="absolute top-10 left-10 w-2 h-2 rounded-full bg-amber-400/40" />
+                <div className="absolute bottom-20 right-12 w-3 h-3 rounded-full bg-orange-400/40" />
               </motion.div>
 
-              {/* Quick Contact Links */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="mt-12 flex items-center gap-8 text-gray-400"
-              >
-                <div className="flex flex-col">
-                  <span className="text-[10px] uppercase font-bold tracking-widest mb-1">Email</span>
-                  <a href="mailto:deshmukhrenu4@gmail.com" className="text-dark text-sm font-bold hover:text-amber-600 transition-colors">deshmukhrenu4@gmail.com</a>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] uppercase font-bold tracking-widest mb-1">Location</span>
-                  <span className="text-dark text-sm font-bold">Nagpur, India</span>
-                </div>
-              </motion.div>
+              {/* Floating Data Nodes */}
+              {[
+                { text: "100K+ Insights", pos: "top-10 left-0 xl:left-4", icon: "📈", delay: 0 },
+                { text: "SQL Master", pos: "top-40 -left-12 xl:-left-4 md:left-0", icon: "🗄️", delay: 1 },
+                { text: "Predictive AI", pos: "bottom-20 -right-12 xl:-right-4 md:right-0", icon: "🧠", delay: 2 },
+                { text: "Power BI", pos: "bottom-0 right-10 xl:right-16", icon: "🎨", delay: 3 },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    y: [0, -20, 0],
+                  }}
+                  transition={{
+                    y: { duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+                    opacity: { duration: 1, delay: i * 0.2 },
+                    scale: { duration: 1, delay: i * 0.2 }
+                  }}
+                  className={`absolute ${item.pos} px-6 py-4 xl:px-4 xl:py-3 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-100 shadow-xl flex items-center gap-3 z-20 hover:scale-110 hover:shadow-amber-500/10 transition-all cursor-default group`}
+                >
+                  <span className="text-xl xl:text-base group-hover:rotate-12 transition-transform">{item.icon}</span>
+                  <span className="text-sm xl:text-xs font-black text-slate-700 tracking-tight whitespace-nowrap">{item.text}</span>
+                </motion.div>
+              ))}
+
+              {/* Orbital Rings */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[450px] h-[450px] xl:w-[350px] xl:h-[350px] md:w-[280px] md:h-[280px] border border-amber-200/40 rounded-[4rem] -z-10"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[550px] h-[550px] xl:w-[450px] xl:h-[450px] md:w-[350px] md:h-[350px] border border-slate-200/30 rounded-[5rem] -z-10"
+              />
             </div>
 
           </div>
         </Layout>
-
-        {/* Floating Decorative Icon */}
-        <motion.div 
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className='absolute right-12 bottom-12 w-24 opacity-20 pointer-events-none md:hidden text-amber-500'
-        >
-          <Image src={lightbulb} alt="Decorative" className='w-full h-auto brightness-75' />
-        </motion.div>
-
-        <HireMe />
-      </main >
+      </main>
     </>
-  )
+  );
 }
